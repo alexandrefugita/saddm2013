@@ -23,7 +23,14 @@ public class MainActivity extends Activity {
 
 	public void efetuarLogin(View view) 
 	{
+		
+		
 	    Intent intent = new Intent(MainActivity.this, GerenciadorPrincipal.class);
+	    startActivity(intent);
+	}
+	
+	public void cadastrar(View view) {
+		Intent intent = new Intent(MainActivity.this, GerenciadorCadastro.class);
 	    startActivity(intent);
 	}
 }

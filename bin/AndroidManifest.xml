@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.fugitahyodo.saddm.GerenciadorPrincipal"></activity>
+        <activity android:name="com.fugitahyodo.saddm.GerenciadorCadastro"></activity>
     </application>
 
 </manifest>

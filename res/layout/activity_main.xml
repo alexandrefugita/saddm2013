@@ -9,21 +9,51 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/gerenciador_cadastro_label_confirmasenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/hello_world" />
-    
+
+    <EditText
+        android:id="@+id/campo_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gerenciador_cadastro_label_confirmasenha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/campo_senha"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:text="Login"
-        android:onClick="efetuarLogin" />
+        android:onClick="efetuarLogin"
+        android:text="Login" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/campo_senha"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="138dp"
+        android:text="Não possui login? Faça o cadastro:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:onClick="cadastrar"
+        android:text="Cadastrar" />
 
 </RelativeLayout>
