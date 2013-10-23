@@ -1,12 +1,11 @@
 package com.fugitahyodo.saddm;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivity extends Activity {
+public class MainActivity extends SaddmActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +22,6 @@ public class MainActivity extends Activity {
 
 	public void efetuarLogin(View view) 
 	{
-		
-		
 	    Intent intent = new Intent(MainActivity.this, GerenciadorPrincipal.class);
 	    startActivity(intent);
 	}

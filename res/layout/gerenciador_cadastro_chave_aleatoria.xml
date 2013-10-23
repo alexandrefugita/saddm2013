@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="A sua chave aleatória é:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_mensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_chave"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:gravity="center"
+        android:text="Memorize esta chave. Ela não será mais disponibilizada posteriormente. Caso você esqueça ou perca essa chave, um novo cadastro deverá ser providenciado com a Autoridade Certificadora."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_titulo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="chave"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/gerenciador_chave_aleatoria_botao_confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_marginBottom="20dp"
+        android:onClick="voltar"
+        android:text="Confirmar" />
+
+    <Button
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gerenciador_chave_aleatoria_botao_confirmar"
+        android:layout_alignLeft="@+id/gerenciador_cadastro_chave_aleatoria_mensagem"
+        android:layout_alignRight="@+id/gerenciador_cadastro_chave_aleatoria_mensagem"
+        android:layout_marginBottom="20dp"
+        android:onClick="confirmar"
+        android:text="Voltar" />
+
+    <Button
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_botao_gerar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_alignLeft="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_alignRight="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_marginBottom="20dp"
+        android:onClick="gerarAleatorio"
+        android:text="Gerar nova chave" />
+
+</RelativeLayout>

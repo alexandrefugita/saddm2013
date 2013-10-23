@@ -1,10 +1,9 @@
 package com.fugitahyodo.saddm;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-public class GerenciadorPrincipal extends Activity {
+public class GerenciadorPrincipal extends SaddmActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

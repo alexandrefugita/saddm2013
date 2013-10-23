@@ -1,13 +1,15 @@
 package com.fugitahyodo.saddm;
 
-import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class GerenciadorCadastro extends Activity {
+public class GerenciadorCadastro extends SaddmActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,7 +76,21 @@ public class GerenciadorCadastro extends Activity {
 			Toast.makeText(GerenciadorCadastro.this, "OK!!!!!!111",
 					Toast.LENGTH_SHORT).show();
 			
-			// gerar senha
+			// salvar dados do cadastro no sistema
+			Editor editor = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE).edit();
+			editor.putString("nome", nome.getText().toString());
+			editor.putString("cpf", cpf.getText().toString());
+			editor.putString("dataNascimento", dataNascimento.getText().toString());
+			editor.commit();
+			
+			// gerar aleatorio
+//			String chaveAleatoria = "asdfihasdiouahsfasdvffsagaergsra";
+			
+			// chamar intent do aleatorio passando o parametro
+			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroChaveAleatoria.class);
+//			intent.putExtra(Constants.CHAVE_ALEATORIA, chaveAleatoria);
+		    startActivity(intent);
+			
 		}
 	}
 }

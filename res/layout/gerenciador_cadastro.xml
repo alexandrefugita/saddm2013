@@ -8,125 +8,141 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_mensagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Cadastro de usuário" />
-
-    <TextView
-        android:id="@+id/gerenciador_cadastro_label_nome"
+    <ScrollView
+        android:id="@+id/gerenciador_cadastro_scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/gerenciador_cadastro_mensagem"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="16dp"
-        android:text="Nome Completo"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_alignParentTop="true" >
 
-    <EditText
-        android:id="@+id/gerenciador_cadastro_campo_nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_label_nome"
-        android:layout_below="@+id/gerenciador_cadastro_label_nome"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textPersonName" >
-        <requestFocus />
-    </EditText>
+        <RelativeLayout
+            android:id="@+id/gerenciador_cadastro_relative_layout"
+            android:layout_width="302dp"
+            android:layout_height="534dp" >
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_label_cpf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_campo_nome"
-        android:layout_below="@+id/gerenciador_cadastro_campo_nome"
-        android:layout_marginTop="13dp"
-        android:text="CPF"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/gerenciador_cadastro_mensagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Cadastro de usuário" />
 
-    <EditText
-        android:id="@+id/gerenciador_cadastro_campo_cpf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_label_cpf"
-        android:layout_below="@+id/gerenciador_cadastro_label_cpf"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="number" />
+            <TextView
+                android:id="@+id/gerenciador_cadastro_label_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/gerenciador_cadastro_mensagem"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="16dp"
+                android:text="Nome Completo"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_label_datanasc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_campo_cpf"
-        android:layout_below="@+id/gerenciador_cadastro_campo_cpf"
-        android:layout_marginTop="13dp"
-        android:text="Data de nascimento"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <EditText
+                android:id="@+id/gerenciador_cadastro_campo_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_label_nome"
+                android:layout_below="@+id/gerenciador_cadastro_label_nome"
+                android:layout_marginTop="14dp"
+                android:ems="10"
+                android:inputType="textPersonName" >
 
-    <EditText
-        android:id="@+id/gerenciador_cadastro_campo_datanasc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_label_datanasc"
-        android:layout_below="@+id/gerenciador_cadastro_label_datanasc"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:inputType="date" />
+                <requestFocus />
+            </EditText>
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_label_senha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_campo_datanasc"
-        android:layout_below="@+id/gerenciador_cadastro_campo_datanasc"
-        android:layout_marginTop="16dp"
-        android:text="Senha"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/gerenciador_cadastro_label_cpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_campo_nome"
+                android:layout_below="@+id/gerenciador_cadastro_campo_nome"
+                android:layout_marginTop="13dp"
+                android:text="CPF"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <EditText
-        android:id="@+id/gerenciador_cadastro_campo_senha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_label_senha"
-        android:layout_below="@+id/gerenciador_cadastro_label_senha"
-        android:layout_marginTop="13dp"
-        android:ems="10"
-        android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/gerenciador_cadastro_campo_cpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_label_cpf"
+                android:layout_below="@+id/gerenciador_cadastro_label_cpf"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="number" />
 
-    <Button
-        android:id="@+id/gerenciador_cadastro_botao_enviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
-        android:onClick="verificar"
-        android:text="Enviar" />
+            <TextView
+                android:id="@+id/gerenciador_cadastro_label_datanasc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_campo_cpf"
+                android:layout_below="@+id/gerenciador_cadastro_campo_cpf"
+                android:layout_marginTop="13dp"
+                android:text="Data de nascimento"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_label_confirmasenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_campo_senha"
-        android:layout_below="@+id/gerenciador_cadastro_campo_senha"
-        android:layout_marginTop="13dp"
-        android:text="Confirmar senha"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <EditText
+                android:id="@+id/gerenciador_cadastro_campo_datanasc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_label_datanasc"
+                android:layout_below="@+id/gerenciador_cadastro_label_datanasc"
+                android:layout_marginTop="11dp"
+                android:ems="10"
+                android:inputType="date" />
 
-    <EditText
-        android:id="@+id/gerenciador_cadastro_campo_confirmasenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerenciador_cadastro_label_confirmasenha"
-        android:layout_below="@+id/gerenciador_cadastro_label_confirmasenha"
-        android:ems="10"
-        android:inputType="textPassword" />
+            <TextView
+                android:id="@+id/gerenciador_cadastro_label_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_campo_datanasc"
+                android:layout_below="@+id/gerenciador_cadastro_campo_datanasc"
+                android:layout_marginTop="16dp"
+                android:text="Senha"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/gerenciador_cadastro_campo_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_label_senha"
+                android:layout_below="@+id/gerenciador_cadastro_label_senha"
+                android:layout_marginTop="13dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/gerenciador_cadastro_label_confirmasenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_campo_senha"
+                android:layout_below="@+id/gerenciador_cadastro_campo_senha"
+                android:layout_marginTop="13dp"
+                android:text="Confirmar senha"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/gerenciador_cadastro_campo_confirmasenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerenciador_cadastro_label_confirmasenha"
+                android:layout_below="@+id/gerenciador_cadastro_label_confirmasenha"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/gerenciador_cadastro_botao_enviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="28dp"
+                android:onClick="verificar"
+                android:text="Enviar" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
