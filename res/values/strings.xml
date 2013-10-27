@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">app_name</string>
+    <string name="app_name">SADDM2013</string>
     <string name="action_settings">action_settings</string>
     <string name="hello_world">Bem vindo! Faça o login:</string>
     <string name="gerenciador_principal_titulo">Gerenciador Principal</string>
