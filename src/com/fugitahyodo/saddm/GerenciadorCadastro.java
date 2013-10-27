@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import br.com.saddm.gerenciador.GerenciadorArquivos;
 import br.com.saddm.validator.CPFValidator;
 import br.com.saddm.validator.PasswordValidator;
 
@@ -89,8 +90,11 @@ public class GerenciadorCadastro extends SaddmActivity {
 			editor.putString("dataNascimento", dataNascimento.getText().toString());
 			editor.commit();
 			
-			// gerar aleatorio
-//			String chaveAleatoria = "asdfihasdiouahsfasdvffsagaergsra";
+			// Null nos Validator TODO criar class static
+			
+			
+			// Guardar Profile do User
+			GerenciadorArquivos.writeUserProfile(nome.getText().toString(),cpf.getText().toString(),dataNascimento.getText().toString());
 			
 			// chamar intent do aleatorio passando o parametro
 			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroChaveAleatoria.class);

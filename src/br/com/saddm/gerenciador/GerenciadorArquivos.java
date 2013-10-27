@@ -2,13 +2,41 @@ package br.com.saddm.gerenciador;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import android.os.Environment;
 
 public class GerenciadorArquivos {
-
-	public void writePublicKeyOnDisk(byte[] key) {
+	
+	
+	public static void writeUserProfile(String name, String cpf, String dataNascimento) {
+		final String appDirectory = "/Saddm2013/"; 
+		
+		try {
+			File profileRoot = new File(Environment.getExternalStorageDirectory(), appDirectory + "Profile");
+			
+			if(!profileRoot.exists()) {
+				profileRoot.mkdirs();
+			}
+			
+			File profile = new File(profileRoot, "profile.txt");
+			FileWriter profileWriter = new FileWriter(profile);
+			
+			profileWriter.write(name + " ");
+			profileWriter.write(cpf + " ");
+			profileWriter.write(dataNascimento + " ");
+			
+			profileWriter.flush();
+			profileWriter.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void writePublicKeyOnDisk(byte[] key) {
 		String sFileName = "suepk";
 		
 		//Confere o acesso ao cartão externo
@@ -40,7 +68,7 @@ public class GerenciadorArquivos {
 
 
 	/* Checks if external storage is available for read and write */
-	public boolean isExternalStorageWritable() {
+	public static  boolean isExternalStorageWritable() {
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			return true;
@@ -49,7 +77,7 @@ public class GerenciadorArquivos {
 	}
 
 	/* Checks if external storage is available to at least read */
-	public boolean isExternalStorageReadable() {
+	public static boolean isExternalStorageReadable() {
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state) ||
 				Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
