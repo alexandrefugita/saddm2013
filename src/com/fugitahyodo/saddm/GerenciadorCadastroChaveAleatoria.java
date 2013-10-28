@@ -1,6 +1,6 @@
 package com.fugitahyodo.saddm;
 
-import java.util.Date;
+import java.util.Random;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,10 +18,14 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 		//		String chaveAleatoria = intent.getStringExtra(Constants.CHAVE_ALEATORIA);
 
 		// usar metodo
-		String chaveAleatoria = "asdfihasdiouahsfasdvffsagaergsra";
+		String chaveAleatoria = "";
 
 		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave);
-		textViewChaveAleatoria.setText(chaveAleatoria);
+		if(!chaveAleatoria.equals("")) {
+			textViewChaveAleatoria.setText(chaveAleatoria);
+		} else {
+			textViewChaveAleatoria.setText(" Pressione Gerar Nova Chace");
+		}
 	}
 
 	@Override
@@ -32,8 +36,24 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 	}
 
 	public void gerarAleatorio(View view) {
-		String chaveAleatoria = new Date().toString();
-
+		String chaveAleatoria = "";
+		char c;
+		int i, op;
+		
+		Random random = new Random();
+		
+		for(i = 0; i < 4; i++) {
+			op = random.nextInt(2);
+			if (op == 0) {
+				c = (char) ( random.nextInt(9) + 48 ); // gera numero
+			} else if (op == 1) {
+				c = (char) ( random.nextInt(25) + 97 );  // gera letra minuscula
+			} else {
+				c = (char) ( random.nextInt(25) + 65 );  // gera letra maiuscula
+			}
+				chaveAleatoria = chaveAleatoria + c;
+		}
+		
 		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave);
 		textViewChaveAleatoria.setText(chaveAleatoria);
 	}

@@ -104,9 +104,6 @@ public class GerenciadorCadastro extends SaddmActivity {
 		
 		passValidator = null;
 		
-//		byte[] key = new byte[] {0100, 0001, 0100, 0010};
-//		gerFile.writePublicKeyOnDisk(key);
-		
 	}
 	
 	

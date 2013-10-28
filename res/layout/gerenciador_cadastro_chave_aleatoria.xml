@@ -71,6 +71,6 @@
         android:layout_alignRight="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
         android:layout_marginBottom="20dp"
         android:onClick="gerarAleatorio"
-        android:text="Gerar nova chave" />
+        android:text="Gerar Nova Chave" />
 
 </RelativeLayout>
