@@ -5,16 +5,17 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import android.app.Activity;
 import android.os.Environment;
 
-public class GerenciadorArquivos {
+public class GerenciadorArquivos extends Activity {
 	
 	
 	public static void writeUserProfile(String name, String cpf, String dataNascimento) {
 		final String appDirectory = "/Saddm2013/"; 
 		
 		try {
-			File profileRoot = new File(Environment.getExternalStorageDirectory(), appDirectory + "Profile");
+			File profileRoot = new File(Environment.getDataDirectory(), appDirectory + "Profile");
 			
 			if(!profileRoot.exists()) {
 				profileRoot.mkdirs();
@@ -34,6 +35,10 @@ public class GerenciadorArquivos {
 			e.printStackTrace();
 		}
 		
+	}	
+	
+	public static String readProfile() {
+		return "ok";
 	}
 	
 	public static void writePublicKeyOnDisk(byte[] key) {

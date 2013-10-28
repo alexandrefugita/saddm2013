@@ -24,8 +24,9 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080016;
+        public static final int action_settings=0x7f080017;
         public static final int campo_senha=0x7f080001;
+        public static final int gerador_chaves_botao_gerar=0x7f080015;
         public static final int gerenciador_cadastro_botao_enviar=0x7f080011;
         public static final int gerenciador_cadastro_campo_confirmasenha=0x7f080010;
         public static final int gerenciador_cadastro_campo_cpf=0x7f08000b;
@@ -46,13 +47,14 @@ public final class R {
         public static final int gerenciador_cadastro_relative_layout=0x7f080006;
         public static final int gerenciador_cadastro_scrollView=0x7f080005;
         public static final int gerenciador_chave_aleatoria_botao_confirmar=0x7f080004;
-        public static final int gerenciador_principal_mensagem=0x7f080015;
+        public static final int gerenciador_principal_mensagem=0x7f080016;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int gerenciador_cadastro=0x7f030001;
         public static final int gerenciador_cadastro_chave_aleatoria=0x7f030002;
-        public static final int gerenciador_principal=0x7f030003;
+        public static final int gerenciador_gerador_chaves=0x7f030003;
+        public static final int gerenciador_principal=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f070000;

@@ -2,6 +2,9 @@ package com.fugitahyodo.saddm;
 
 import java.util.Random;
 
+import br.com.saddm.gerenciador.GerenciadorGeracaoChaves;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -63,6 +66,7 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 	}
 
 	public void confirmar(View view) {
-
+		Intent intent = new Intent(GerenciadorCadastroChaveAleatoria.this, GerenciadorGeracaoChaves.class);
+		startActivity(intent);
 	}
 }

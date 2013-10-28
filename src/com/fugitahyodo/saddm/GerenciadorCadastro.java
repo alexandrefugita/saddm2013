@@ -85,7 +85,7 @@ public class GerenciadorCadastro extends SaddmActivity {
 
 			/// salvar dados do cadastro no sistema
 			Editor editor = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE).edit();
-			editor.putString("nome", nome.getText().toString());
+			editor.putString("nome", nome.getText().toString());  //TODO usar o recurso R.string para setar esses nomes
 			editor.putString("cpf", cpf.getText().toString());
 			editor.putString("dataNascimento", dataNascimento.getText().toString());
 			editor.commit();
