@@ -19,17 +19,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/gerenciador_cadastro_chave_aleatoria_mensagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_chave"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
-        android:gravity="center"
-        android:text="Memorize esta chave. Ela não será mais disponibilizada posteriormente. Caso você esqueça ou perca essa chave, um novo cadastro deverá ser providenciado com a Autoridade Certificadora."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
         android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,5 +61,15 @@
         android:layout_marginBottom="20dp"
         android:onClick="gerarAleatorio"
         android:text="Gerar Nova Chave" />
+
+    <TextView
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_mensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gerenciador_cadastro_chave_aleatoria_botao_gerar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Memorize esta chave. Ela não será mais disponibilizada posteriormente. Caso você esqueça ou perca essa chave, um novo cadastro deverá ser providenciado com a Autoridade Certificadora."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

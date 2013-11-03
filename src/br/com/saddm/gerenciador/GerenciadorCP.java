@@ -3,46 +3,40 @@ package br.com.saddm.gerenciador;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
-import java.security.Provider;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.util.Random;
+
 
 public class GerenciadorCP {
 	protected String salt, sSeed;
 	protected PrivateKey chavePrivada;
 	protected PublicKey chavePublica;
 	
-	
 	public void gerarChaves(String info, String pass) {
 		this.criarSalt();
 		sSeed = salt + info + pass;
 			
 		try {
-		
-			// EC = algoritmo a ser utilizado
-			// SunEC = Provider - responsável pela API
-			Provider p = Security.getProvider("Sun");
-			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DSA",p);
-			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN"); // source of randomness
-		
+			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
+			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
+			
+			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto"); // source of randomness
+			// em caso de um seed espeficifico podesse utilziar random.setSeed(seed);
+			//exemplo teste random.setSeed(201);
 			random.setSeed(sSeed.getBytes());
 			
 			keyGen.initialize(256, random); 
-			//random = null; // Por segurança destruir o random depois de gerar as chaves
+			KeyPair pair = keyGen.generateKeyPair(); // Por segurança destruir o random depois de gerar as chaves
 			
-			KeyPair pair = keyGen.generateKeyPair(); 
+			PrivateKey priv = pair.getPrivate();
+			PublicKey pub = pair.getPublic(); 
 			
-			PrivateKey chavePrivada = pair.getPrivate();
-			PublicKey chavePublica = pair.getPublic();
-			
-			System.out.println(chavePrivada);
-			System.out.println(chavePublica);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			System.out.println(priv);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	}
 	
 	public String criarSalt() {

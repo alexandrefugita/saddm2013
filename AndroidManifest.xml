@@ -29,8 +29,9 @@
         <activity android:name="com.fugitahyodo.saddm.GerenciadorCadastro"></activity>
         <activity android:name="com.fugitahyodo.saddm.GerenciadorCadastroChaveAleatoria"></activity>
         <activity android:name="br.com.saddm.gerenciador.GerenciadorGeracaoChaves"></activity>
-        
 		<activity android:name="com.fugitahyodo.saddm.SaddmActivity"></activity>
+		<activity android:name="com.fugitahyodo.saddm.Signer"></activity>
+		<activity android:name="br.com.thinkti.android.filechooser.FileChooser"></activity>  
     </application>
 
 </manifest>
