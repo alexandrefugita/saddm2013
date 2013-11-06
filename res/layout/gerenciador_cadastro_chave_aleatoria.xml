@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave"
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_titulo"

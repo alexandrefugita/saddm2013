@@ -10,6 +10,8 @@ import com.fugitahyodo.saddm.R;
 import com.fugitahyodo.saddm.SaddmActivity;
 import com.fugitahyodo.saddm.SaddmApplication;
 
+
+//TODO  esse é controlor
 public class GerenciadorGeracaoChaves extends SaddmActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -42,20 +42,21 @@ public final class R {
         public static final int Button01=0x7f080005;
         public static final int TextView01=0x7f080007;
         public static final int TextView02=0x7f080008;
-        public static final int action_settings=0x7f08001c;
+        public static final int action_settings=0x7f08001d;
         public static final int campo_senha=0x7f080001;
-        public static final int choosefile=0x7f08001b;
-        public static final int gerador_chaves_botao_gerar=0x7f080019;
+        public static final int choosefile=0x7f08001c;
+        public static final int gerador_chaves_botao_gerar=0x7f08001a;
         public static final int gerenciador_cadastro_botao_enviar=0x7f080015;
         public static final int gerenciador_cadastro_campo_confirmasenha=0x7f080014;
         public static final int gerenciador_cadastro_campo_cpf=0x7f08000f;
         public static final int gerenciador_cadastro_campo_datanasc=0x7f080011;
         public static final int gerenciador_cadastro_campo_nome=0x7f08000d;
         public static final int gerenciador_cadastro_campo_senha=0x7f080013;
-        public static final int gerenciador_cadastro_chave_aleatoria_botao_gerar=0x7f080018;
+        public static final int gerenciador_cadastro_chave_aleatoria_botao_gerar=0x7f080019;
         public static final int gerenciador_cadastro_chave_aleatoria_botao_voltar=0x7f080002;
-        public static final int gerenciador_cadastro_chave_aleatoria_chave=0x7f080004;
-        public static final int gerenciador_cadastro_chave_aleatoria_mensagem=0x7f080017;
+        public static final int gerenciador_cadastro_chave_aleatoria_chave=0x7f080003;
+        public static final int gerenciador_cadastro_chave_aleatoria_chave_text=0x7f080017;
+        public static final int gerenciador_cadastro_chave_aleatoria_mensagem=0x7f080018;
         public static final int gerenciador_cadastro_chave_aleatoria_titulo=0x7f080016;
         public static final int gerenciador_cadastro_label_confirmasenha=0x7f080000;
         public static final int gerenciador_cadastro_label_cpf=0x7f08000e;
@@ -65,8 +66,8 @@ public final class R {
         public static final int gerenciador_cadastro_mensagem=0x7f08000b;
         public static final int gerenciador_cadastro_relative_layout=0x7f08000a;
         public static final int gerenciador_cadastro_scrollView=0x7f080009;
-        public static final int gerenciador_chave_aleatoria_botao_confirmar=0x7f080003;
-        public static final int gerenciador_principal_mensagem=0x7f08001a;
+        public static final int gerenciador_chave_aleatoria_botao_confirmar=0x7f080004;
+        public static final int gerenciador_principal_mensagem=0x7f08001b;
         public static final int img1=0x7f080006;
     }
     public static final class layout {

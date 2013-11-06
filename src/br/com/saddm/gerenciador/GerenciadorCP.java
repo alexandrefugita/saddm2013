@@ -1,11 +1,14 @@
 package br.com.saddm.gerenciador;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
+import java.security.Signature;
 import java.util.Random;
 
 
@@ -17,7 +20,7 @@ public class GerenciadorCP {
 	public void gerarChaves(String info, String pass) {
 		this.criarSalt();
 		sSeed = salt + info + pass;
-			
+				
 		try {
 			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
@@ -38,6 +41,65 @@ public class GerenciadorCP {
 				e.printStackTrace();
 			}
 	}
+	
+	private void gerarChavePrivada(String pass) {
+		try{
+			sSeed = GerenciadorArquivos.readUserProfile() + GerenciadorArquivos.readSalt();
+			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
+			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto");
+			random.setSeed(sSeed.getBytes());
+			keyGen.initialize(256, random);
+			
+			chavePrivada = keyGen.generateKeyPair().getPrivate();
+		}
+			catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void sign(String fileSelected, String pass) {
+		// pegar informações em file
+		this.gerarChavePrivada(pass);
+		
+		try {
+			
+			//Criando instancia de assinatura
+			Signature sign = Signature.getInstance("SHA1withDSA", "Crypto");
+			
+			if (chavePrivada != null) {
+				sign.initSign(chavePrivada);
+			} else {
+				System.out.println("Chave Privada Nula");
+			}
+			
+			//Acesso ao arquivo selecionado para assinar
+			FileInputStream fis = new FileInputStream(fileSelected);
+			
+			//Leitura do arquivo em parte 
+			BufferedInputStream bufin =  new BufferedInputStream(fis);
+			byte[] buffer =  new byte[2048];
+			int len;
+			while ((len = bufin.read(buffer)) >= 0 ) {          
+				sign.update(buffer, 0 , len);
+				
+			};
+			bufin.close();
+			
+			// Assintatura 
+			byte[] realSig = sign.sign();
+			GerenciadorArquivos.writeFileAppFolder(realSig, "Assinaturas","sig");
+			
+			//Destroi chave privada
+			this.chavePrivada = null;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
 	
 	public String criarSalt() {
 		String salt = "";
