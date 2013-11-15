@@ -14,12 +14,12 @@ import java.util.Random;
 
 public class GerenciadorCP {
 	protected String salt, sSeed;
-	protected PrivateKey chavePrivada;
+	protected PrivateKey chavePrivada = null;
 	protected PublicKey chavePublica;
 	
 	public void gerarChaves(String info, String pass) {
-		this.criarSalt();
-		sSeed = salt + info + pass;
+		this.salt = this.criarSalt();
+		sSeed = this.salt + info + pass;
 				
 		try {
 			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
@@ -36,6 +36,9 @@ public class GerenciadorCP {
 			PrivateKey priv = pair.getPrivate();
 			PublicKey pub = pair.getPublic(); 
 			
+			GerenciadorArquivos.writePublicKeyOnDisk(pub.getEncoded());
+			GerenciadorArquivos.writeSalt(this.salt);
+			
 			System.out.println(priv);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -44,13 +47,15 @@ public class GerenciadorCP {
 	
 	private void gerarChavePrivada(String pass) {
 		try{
-			sSeed = GerenciadorArquivos.readUserProfile() + GerenciadorArquivos.readSalt();
+			System.out.println("gerarChavePrivada");
+			sSeed = GerenciadorArquivos.readUserProfile() + GerenciadorArquivos.readSalt() + pass;
+			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto");
 			random.setSeed(sSeed.getBytes());
 			keyGen.initialize(256, random);
-			
-			chavePrivada = keyGen.generateKeyPair().getPrivate();
+			KeyPair pair= keyGen.generateKeyPair();
+			this.chavePrivada = pair.getPrivate();
 		}
 			catch(Exception e) {
 			e.printStackTrace();
@@ -64,7 +69,7 @@ public class GerenciadorCP {
 		try {
 			
 			//Criando instancia de assinatura
-			Signature sign = Signature.getInstance("SHA1withDSA", "Crypto");
+			Signature sign = Signature.getInstance("SHA1WITHECDSA", "SC");
 			
 			if (chavePrivada != null) {
 				sign.initSign(chavePrivada);
@@ -101,7 +106,7 @@ public class GerenciadorCP {
 	
 	
 	
-	public String criarSalt() {
+	private String criarSalt() {
 		String salt = "";
 		int i, op;
 		char c;

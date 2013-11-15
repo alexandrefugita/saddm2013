@@ -15,10 +15,8 @@ import android.widget.Toast;
 public class Signer extends Activity{
 	private static final int FILE_CHOOSER = 11;
 	
-	private String fileSelected;
-	
-	private String pass;
-	
+	private String fileSelected = "";
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +29,9 @@ public class Signer extends Activity{
 	    	ArrayList<String> extensions = new ArrayList<String>();
 	    	extensions.add(".pdf");
 	    	extensions.add(".txt");
+	    	extensions.add(".png");
+	    	extensions.add(".jpeg");
+	    	extensions.add(".jpg");
 	    	intent.putStringArrayListExtra("filterFileExtension", extensions);
 	    	startActivityForResult(intent, FILE_CHOOSER);
 	}
@@ -39,20 +40,22 @@ public class Signer extends Activity{
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if ((requestCode == FILE_CHOOSER) && (resultCode == -1)) {
 	    		this.fileSelected = data.getStringExtra("fileSelected");
-	    		Toast.makeText(this, fileSelected, Toast.LENGTH_SHORT).show();
+	    		//Toast.makeText(this, fileSelected, Toast.LENGTH_SHORT).show();
 	    	}
 	    		
 	}
 	
 	public void sign(View view) {
-		this.pass = findViewById(R.id.campo_senha).toString() ;
+		
+		EditText passText = (EditText) findViewById(R.id.signer_campo_senha);
+		String pass = passText.getText().toString();
 		System.out.println(pass);
 		PasswordValidator valPass = new PasswordValidator(pass);
 		if(!valPass.isPassOk()) {
 			Toast.makeText(this,"A senha não está correta", Toast.LENGTH_SHORT).show();
 			return;
 		}
-		if(fileSelected.isEmpty()) {
+		if(!fileSelected.equals("")) {
 			GerenciadorCP gerCP = new GerenciadorCP();
 			gerCP.sign(fileSelected, pass);
 		} else {

@@ -1,11 +1,14 @@
 package br.com.saddm.gerenciador;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.fugitahyodo.saddm.GerenciadorCadastroChaveAleatoria;
+import com.fugitahyodo.saddm.MainActivity;
 import com.fugitahyodo.saddm.R;
 import com.fugitahyodo.saddm.SaddmActivity;
 import com.fugitahyodo.saddm.SaddmApplication;
@@ -38,6 +41,14 @@ public class GerenciadorGeracaoChaves extends SaddmActivity {
 		GerenciadorCP gerCp = new GerenciadorCP();
 		
 		gerCp.gerarChaves(name + cpf + dataNasc, "123455678@A");
+	}
+	
+	public void testeChave(View view) {
 		
+	}
+	
+	public void voltar(View view) {
+		Intent intent = new Intent(GerenciadorGeracaoChaves.this, MainActivity.class);
+		startActivity(intent);
 	}
 }

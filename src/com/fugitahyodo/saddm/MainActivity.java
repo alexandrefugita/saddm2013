@@ -38,4 +38,9 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(MainActivity.this, Signer.class);
 	    startActivity(intent);
 	}
+	
+	public void senhaAle(View view) {
+		Intent intent = new Intent(MainActivity.this, GerenciadorCadastroChaveAleatoria.class);
+	    startActivity(intent);
+	}
 }

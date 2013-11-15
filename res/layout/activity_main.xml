@@ -36,16 +36,6 @@
         android:onClick="efetuarLogin"
         android:text="Login" />
 
-    <TextView
-        android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/campo_senha"
-        android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
-        android:layout_marginTop="80dp"
-        android:text="Não possui login? Faça o cadastro:"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
     <Button
         android:id="@+id/gerenciador_chave_aleatoria_botao_confirmar"
         android:layout_width="wrap_content"
@@ -65,5 +55,25 @@
         android:layout_toRightOf="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
         android:onClick="signer"
         android:text="Assinar" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Button01"
+        android:layout_below="@+id/Button01"
+        android:layout_marginTop="20dp"
+        android:onClick="senhaAle"
+        android:text="Aleatoria" />
+
+    <TextView
+        android:id="@+id/gerenciador_cadastro_chave_aleatoria_chave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/campo_senha"
+        android:layout_below="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
+        android:layout_marginTop="47dp"
+        android:text="Não possui login? Faça o cadastro:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,15 +20,13 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 
 		//		Intent intent = getIntent();
 		//		String chaveAleatoria = intent.getStringExtra(Constants.CHAVE_ALEATORIA);
-
-		// usar metodo
-		String chaveAleatoria = "";
-
-		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave);
+		String chaveAleatoria = "";  
+		
+		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave_text);
 		if(!chaveAleatoria.equals("")) {
 			textViewChaveAleatoria.setText(chaveAleatoria);
 		} else {
-			textViewChaveAleatoria.setText(" Pressione Gerar Nova Chace");
+			textViewChaveAleatoria.setText(" Pressione Gerar Nova Senha");
 		}
 	}
 
@@ -57,7 +56,7 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 				chaveAleatoria = chaveAleatoria + c;
 		}
 		
-		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave);
+		TextView textViewChaveAleatoria = (TextView) findViewById(R.id.gerenciador_cadastro_chave_aleatoria_chave_text);
 		textViewChaveAleatoria.setText(chaveAleatoria);
 	}
 

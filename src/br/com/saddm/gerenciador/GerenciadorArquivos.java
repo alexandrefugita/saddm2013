@@ -2,6 +2,7 @@ package br.com.saddm.gerenciador;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,13 +13,13 @@ import android.os.Environment;
 
 
 public class GerenciadorArquivos extends Activity {
-	
+
 	
 	public static void writeUserProfile(String name, String cpf, String dataNascimento) {
-		final String appDirectory = "/Saddm2013/";  //TODO como setar para geral
+		final String appDirectory = "/Saddm2013/Profile/";  //TODO como setar para geral
 
 		try {
-			File profileRoot = new File(Environment.getDataDirectory(), appDirectory + "Profile");
+			File profileRoot = new File(Environment.getExternalStorageDirectory(), appDirectory);
 			
 			if(!profileRoot.exists()) {
 				profileRoot.mkdirs();
@@ -26,10 +27,9 @@ public class GerenciadorArquivos extends Activity {
 			
 			File profile = new File(profileRoot, "profile.txt");
 			FileWriter profileWriter = new FileWriter(profile);
-			
-			profileWriter.write(name + " ");
-			profileWriter.write(cpf + " ");
-			profileWriter.write(dataNascimento + " ");
+			profileWriter.write("name " + name + " ");
+			profileWriter.write("cpf " + cpf + " ");
+			profileWriter.write("dataN " + dataNascimento + " ");
 			
 			profileWriter.flush();
 			profileWriter.close();
@@ -41,19 +41,29 @@ public class GerenciadorArquivos extends Activity {
 	}
 	
 	public static String readUserProfile() {
-		final String appDirectory = "/Saddm2013/"; //TODO
-		final String name, cpf, dataNasc;
+		final String appDirectory = "/Saddm2013/Profile/"; //TODO
+		final String line, name, cpf, dataNasc;
+		int start, end;
 		
 		if(isExternalStorageReadable()) {
 			try {
-				File profile = new File(Environment.getExternalStorageDirectory(), appDirectory + "Saddm2013/Profile/profie");
+				File profile = new File(Environment.getExternalStorageDirectory(), appDirectory + "profiLe.txt");
 				FileReader profileReader = new FileReader(profile);
-				BufferedReader bufReader =  new BufferedReader(profileReader);
+				BufferedReader bufReader =  new BufferedReader (profileReader,8);
 				if(bufReader != null) {
-					name = bufReader.readLine();
-					cpf = bufReader.readLine();
-					dataNasc = bufReader.readLine();
-					System.out.println(name + "\n" + cpf + "\n" + dataNasc);
+					line = bufReader.readLine();
+					//Get nome
+					start = line.lastIndexOf("name ") + 5;
+					end = line.indexOf(" ", start);
+					name = line.substring(start, end);
+					//Get cpf
+					start = line.lastIndexOf("cpf ") + 4;
+					end = line.indexOf(" ", start);
+					cpf = line.substring(start, end);
+					//Get datNasc
+					start = line.lastIndexOf("dataN ") + 6;
+					dataNasc = line.substring(start);
+					System.out.println("Info = " + name + cpf + dataNasc );
 					return name + cpf + dataNasc;
 				}
 			} catch( Exception e){
@@ -69,7 +79,7 @@ public class GerenciadorArquivos extends Activity {
 		final String appDirectory = "/Saddm2013/";  //TODO
 		
 		try {
-			File profileRoot = new File(Environment.getDataDirectory(), appDirectory + folder);
+			File profileRoot = new File(Environment.getExternalStorageDirectory(), appDirectory + folder);
 			
 			if(!profileRoot.exists()) {
 				profileRoot.mkdirs();
@@ -88,9 +98,9 @@ public class GerenciadorArquivos extends Activity {
 	
 	//Escreve Salt no cartao de memoria
 	public static void writeSalt(String salt) {
-		final String appDirectory = "/Saddm2013/";  //TODO
+		final String appDirectory = "/Saddm2013/Salt/";  //TODO
 		try {
-			File profileRoot = new File(Environment.getDataDirectory(), appDirectory + "Salt");
+			File profileRoot = new File(Environment.getExternalStorageDirectory(), appDirectory);
 			
 			if(!profileRoot.exists()) {
 				profileRoot.mkdirs();
@@ -111,15 +121,15 @@ public class GerenciadorArquivos extends Activity {
 	
 	//Le o salt do arquivo
 	public static String readSalt() {
-		final String appDirectory = "/Saddm2013/";  //TODO
+		final String appDirectory = "/Saddm2013/Salt/";  //TODO
 		String salt;
 		if(isExternalStorageReadable()) {
 			try {
-				File profile = new File(Environment.getExternalStorageDirectory(), appDirectory +"Salt/salt");
+				File profile = new File(Environment.getExternalStorageDirectory(), appDirectory +"salt.txt");
 				FileReader profileReader = new FileReader(profile);
 				BufferedReader bufReader =  new BufferedReader(profileReader);
 				salt = bufReader.readLine();
-				System.out.println(salt);
+				System.out.println("Salt =" + salt);
 				bufReader.close(); 
 				return salt;
 			} catch( Exception e){
@@ -132,13 +142,14 @@ public class GerenciadorArquivos extends Activity {
 	
 	public static void writePublicKeyOnDisk(byte[] key) {
 		String sFileName = "suepk";
+		final String appDirectory = "/Saddm2013/";
 		
 		//Confere o acesso ao cartão externo
 		//Caso afirmativo prossegue com a escrita do arquivo
 		if(isExternalStorageWritable()) {
 			try {
 				//Pega path externo
-				File root = new File(Environment.getExternalStorageDirectory(), "Chaves");
+				File root = new File(Environment.getExternalStorageDirectory(), appDirectory + "Chaves");
 				
 				//Cria path, caso o mesmo não exista
 				if (!root.exists()) {
@@ -159,10 +170,32 @@ public class GerenciadorArquivos extends Activity {
 			System.out.println("Sem acesso ao cartão exteno");
 		}
 	}
+	
+	public static byte[] readPublicKey() {
+		String sFileName = "suepk";
+		final String appDirectory = "/Saddm2013/";
+		
+		try {
+			File pub = new File (Environment.getExternalStorageDirectory(), appDirectory + "Chaves/" +sFileName);
+			FileInputStream keyfis = new FileInputStream(pub);
+			byte[] key = new byte[2048];
+			int i = 0;
+			while( i >= 0){
+				i = keyfis.read();
+				i = i + 1;
+			}
+	
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 
 	/* Checks if external storage is available for read and write */
-	public static  boolean isExternalStorageWritable() {
+	private static  boolean isExternalStorageWritable() {
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			return true;
@@ -171,7 +204,7 @@ public class GerenciadorArquivos extends Activity {
 	}
 
 	/* Checks if external storage is available to at least read */
-	public static boolean isExternalStorageReadable() {
+	private static boolean isExternalStorageReadable() {
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state) ||
 				Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {

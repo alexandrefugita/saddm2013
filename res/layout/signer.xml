@@ -18,10 +18,10 @@
         <RelativeLayout
             android:id="@+id/gerenciador_cadastro_relative_layout"
             android:layout_width="302dp"
-            android:layout_height="534dp" >
+            android:layout_height="400dp" >
 
             <TextView
-                android:id="@+id/gerenciador_cadastro_mensagem"
+                android:id="@+id/signer_mensagem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -30,71 +30,73 @@
                 android:text="Assinar Arquivo" />
 
             <TextView
-                android:id="@+id/gerenciador_cadastro_label_datanasc"
+                android:id="@+id/signer_label_chooseFile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/gerenciador_cadastro_mensagem"
-                android:layout_marginTop="13dp"
+                android:layout_below="@+id/signer_mensagem"
+                android:layout_marginTop="20dp"
                 android:text="Escolher arquivo a ser assinado"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/gerenciador_cadastro_label_senha"
+            
+		 	<Button
+                android:id="@+id/signer_button_choosefile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/gerenciador_cadastro_label_datanasc"
-                android:layout_below="@+id/gerenciador_cadastro_label_datanasc"
-                android:layout_marginTop="16dp"
+                android:layout_below="@+id/signer_label_chooseFile"
+                android:layout_marginTop="10dp"
+                android:onClick="chooseFile"
+                android:text="Arquivo" />
+            
+            <TextView
+                android:id="@+id/signer_label_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/signer_button_choosefile"
+                android:layout_below="@+id/signer_button_choosefile"
+                android:layout_marginTop="30dp"
                 android:text="Senha"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/campo_senha"
+                android:id="@+id/signer_campo_senha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/gerenciador_cadastro_label_senha"
-                android:layout_below="@+id/gerenciador_cadastro_label_senha"
-                android:layout_marginTop="13dp"
+                android:layout_alignLeft="@+id/signer_label_senha"
+                android:layout_below="@+id/signer_label_senha"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/gerenciador_cadastro_label_confirmasenha"
+                android:id="@+id/signer_label_confirmasenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/gerenciador_cadastro_campo_senha"
-                android:layout_below="@+id/gerenciador_cadastro_campo_senha"
-                android:layout_marginTop="13dp"
+                android:layout_alignLeft="@+id/signer_label_senha"
+                android:layout_below="@+id/signer_label_senha"
+                android:layout_marginTop="64dp"
                 android:text="Confirmar senha"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/gerenciador_cadastro_campo_confirmasenha"
+                android:id="@+id/signer_campo_confirmasenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/gerenciador_cadastro_label_confirmasenha"
-                android:layout_below="@+id/gerenciador_cadastro_label_confirmasenha"
+                android:layout_alignLeft="@+id/signer_label_confirmasenha"
+                android:layout_below="@+id/signer_label_confirmasenha"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/gerenciador_cadastro_botao_enviar"
+                android:id="@+id/signer_botao_enviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="28dp"
+                android:layout_below="@+id/signer_label_confirmasenha"
+                android:layout_marginTop="30dp"
                 android:onClick="sign"
                 android:text="Assinar" />
-
-            <Button
-                android:id="@+id/choosefile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/gerenciador_cadastro_campo_senha"
-                android:layout_alignParentRight="true"
-                android:onClick="chooseFile"
-                android:text="Arquivo" />
 
         </RelativeLayout>
     </ScrollView>
