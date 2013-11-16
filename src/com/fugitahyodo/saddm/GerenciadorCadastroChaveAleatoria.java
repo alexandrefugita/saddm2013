@@ -2,6 +2,7 @@ package com.fugitahyodo.saddm;
 
 import java.util.Random;
 
+import br.com.saddm.gerenciador.GerenciadorArquivos;
 import br.com.saddm.gerenciador.GerenciadorGeracaoChaves;
 
 import android.content.Intent;
@@ -26,7 +27,7 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 		if(!chaveAleatoria.equals("")) {
 			textViewChaveAleatoria.setText(chaveAleatoria);
 		} else {
-			textViewChaveAleatoria.setText(" Pressione Gerar Nova Senha");
+			textViewChaveAleatoria.setText("Pressione Gerar Nova Senha");
 		}
 	}
 
@@ -61,7 +62,8 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 	}
 
 	public void voltar(View view) {
-
+		Intent intent = new Intent(GerenciadorCadastroChaveAleatoria.this, MainActivity.class);
+		startActivity(intent);
 	}
 
 	public void confirmar(View view) {

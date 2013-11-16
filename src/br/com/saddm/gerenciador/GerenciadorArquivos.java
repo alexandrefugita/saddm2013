@@ -29,7 +29,7 @@ public class GerenciadorArquivos extends Activity {
 			FileWriter profileWriter = new FileWriter(profile);
 			profileWriter.write("name " + name + " ");
 			profileWriter.write("cpf " + cpf + " ");
-			profileWriter.write("dataN " + dataNascimento + " ");
+			profileWriter.write("dataN " + dataNascimento);
 			
 			profileWriter.flush();
 			profileWriter.close();

@@ -1,5 +1,7 @@
 package com.fugitahyodo.saddm;
 
+import java.util.Random;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -28,17 +30,13 @@ public class GerenciadorCadastro extends SaddmActivity {
 
 	public void verificar(View view) {
 		boolean validacao = true;
-		PasswordValidator passValidator;
 		CPFValidator	  cpfValidator;
 			
-		EditText nome = (EditText) findViewById(R.id.gerenciador_cadastro_campo_nome);
-		EditText cpf = (EditText) findViewById(R.id.gerenciador_cadastro_campo_cpf);
-		EditText dataNascimento = (EditText) findViewById(R.id.gerenciador_cadastro_campo_datanasc);
-		EditText senha = (EditText) findViewById(R.id.gerenciador_cadastro_campo_senha);
-		EditText confirmaSenha = (EditText) findViewById(R.id.gerenciador_cadastro_campo_confirmasenha);
+		String nome =((EditText) findViewById(R.id.gerenciador_cadastro_campo_nome)).getText().toString();
+		String cpf = ((EditText) findViewById(R.id.gerenciador_cadastro_campo_cpf)).getText().toString();
+		String dataNascimento = ((EditText) findViewById(R.id.gerenciador_cadastro_campo_datanasc)).getText().toString();
 
-		passValidator =  new PasswordValidator(senha.getText().toString());
-		cpfValidator = new CPFValidator(cpf.getText().toString());
+		cpfValidator = new CPFValidator(cpf);
 		
 		//Verifica se o campo nome é nulo
 		if (isTamanhoNulo(nome)) {
@@ -62,56 +60,48 @@ public class GerenciadorCadastro extends SaddmActivity {
 					Toast.LENGTH_SHORT).show();
 		}
 
-		//Validacao de senha
-		// Tamanho e padrão
-		if (!passValidator.isPassOk()) {
-			validacao = false;
-			Toast.makeText(GerenciadorCadastro.this,
-					passValidator.getMessage(), Toast.LENGTH_SHORT).show();
-
-		} else if (!senha.getText().toString()
-				.equals(confirmaSenha.getText().toString())) {
-			validacao = false;
-			Toast.makeText(GerenciadorCadastro.this,
-					"Confirmação de senha não confere",
-					Toast.LENGTH_SHORT).show();
-
-		}
-		
 		//Se todos os campos são validos, continua  processo de cadastro
 		if (validacao) {
-			Toast.makeText(GerenciadorCadastro.this, "OK!!!!!!111",
+			Toast.makeText(GerenciadorCadastro.this, "Cadastro executado com sucesso",
 					Toast.LENGTH_SHORT).show();
 
-			/// salvar dados do cadastro no sistema
-			Editor editor = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE).edit();
-			editor.putString("nome", nome.getText().toString());  //TODO usar o recurso R.string para setar esses nomes
-			editor.putString("cpf", cpf.getText().toString());
-			editor.putString("dataNascimento", dataNascimento.getText().toString());
-			editor.commit();
-			
-			// Null nos Validator TODO criar class static
-			
-			
 			// Guardar Profile do User
-			GerenciadorArquivos.writeUserProfile(nome.getText().toString().replaceAll(" ",""),cpf.getText().toString(),dataNascimento.getText().toString());
+			GerenciadorArquivos.writeUserProfile(nome.replaceAll(" ",""),cpf,dataNascimento);
+			GerenciadorArquivos.writeSalt(this.criarSalt());
 			
 			// chamar intent do aleatorio passando o parametro
 			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroChaveAleatoria.class);
-//			intent.putExtra(Constants.CHAVE_ALEATORIA, chaveAleatoria);
 		    startActivity(intent);
-		}
-		
-		passValidator = null;
-		
+		}		
 	}
 	
+	private String criarSalt() {
+		String salt = "";
+		int i, op;
+		char c;
+		Random random = new Random();
+		
+		for(i = 0; i < 40; i++) {
+			op = random.nextInt(2);
+			
+			if (op == 0) {
+				c = (char) ( random.nextInt(9) + 48 ); // gera numero
+			} else if (op == 1) {
+				c = (char) ( random.nextInt(25) + 97 );  // gera letra minuscula
+			} else {
+				c = (char) ( random.nextInt(25) + 65 );  // gera letra maiuscula
+			}
+				salt = salt + c;
+		}
+		
+		salt = salt + random.nextLong();
+		
+		return salt;
+	}
 	
-	
+	private boolean isTamanhoNulo(String palavra) {
 
-	private boolean isTamanhoNulo(EditText palavra) {
-
-		if (palavra.getText().length() == 0 || palavra == null) {
+		if (palavra.length() == 0 || palavra == null) {
 			return true;
 		}
 

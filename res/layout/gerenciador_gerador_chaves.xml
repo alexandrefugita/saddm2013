@@ -7,57 +7,121 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-	
-   	<TextView 
-   		android:id="@+id/gerador_chaves_titulo"
-   		android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-   		android:layout_centerHorizontal="true"
-   		android:layout_marginTop="15dp"  
-   		android:text="Geração a Chave Pública"
-        android:textAppearance="?android:attr/textAppearanceMedium" /> 
-        
-   	<TextView 
-   		android:id="@+id/gerador_chaves_msg"
-   		android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-   		android:layout_centerHorizontal="true"
-   		android:layout_below="@+id/gerador_chaves_titulo"
-   		android:layout_marginTop="15dp"  
-   		android:text="A chave pública será adicionada no cartão externo na pasta /Saddm2013/Chaves/"
-        android:textAppearance="?android:attr/textAppearanceSmall" /> 
-    
-    <Button
-    	android:id="@+id/gerador_chaves_botao_gerar"
+
+    <ScrollView
+        android:id="@+id/gerador_chaves_scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gerador_chaves_titulo" 
-        android:layout_marginTop="75dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="gerarChaves"
-        android:text="Gerar Chaves" />
-     
-      <Button
-        android:id="@+id/gerador_chaves_botao_voltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerador_chaves_botao_gerar"
-        android:layout_alignRight="@+id/gerador_chaves_botao_gerar"
-        android:layout_below="@+id/gerador_chaves_botao_gerar" 
-        android:layout_marginTop="20dp"
-        android:onClick="voltar"
-        android:text="Voltar Menu Principal" />
-      
-      <Button
-        android:id="@+id/gerador_chaves_botao_teste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gerador_chaves_botao_gerar"
-        android:layout_alignRight="@+id/gerador_chaves_botao_gerar"
-        android:layout_below="@+id/gerador_chaves_botao_voltar" 
-        android:layout_marginTop="40dp"
-        android:onClick="testeChave"
-        android:text="Teste Chave" />
-     
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <RelativeLayout
+            android:id="@+id/gerador_chaves_relative_layout"
+            android:layout_width="302dp"
+            android:layout_height="534dp" >
+
+            <TextView
+                android:id="@+id/gerador_chaves_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="Geração da Chave Pública"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/gerador_chaves_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gerador_chaves_titulo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:text="A chave pública será adicionada no cartão externo na pasta /Saddm2013/Chaves/"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/gerador_chave_label_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chaves_msg"
+                android:layout_below="@+id/gerador_chaves_msg"
+                android:layout_marginTop="16dp"
+                android:text="Senha"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/gerador_chave_campo_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_label_senha"
+                android:layout_below="@+id/gerador_chave_label_senha"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/gerador_chave_label_senha_confirmcao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_campo_senha"
+                android:layout_below="@+id/gerador_chave_campo_senha"
+                android:layout_marginTop="10dp"
+                android:text="Confimação de Senha"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/gerador_chave_campo_senha_confirmacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_label_senha_confirmcao"
+                android:layout_below="@+id/gerador_chave_label_senha_confirmcao"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/gerador_chave_label_senha_aleatoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_campo_senha_confirmacao"
+                android:layout_below="@+id/gerador_chave_campo_senha_confirmacao"
+                android:layout_marginTop="10dp"
+                android:text="Senha Aleatória"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <EditText
+                android:id="@+id/gerador_chave_campo_senha_aleatoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_label_senha_aleatoria"
+                android:layout_below="@+id/gerador_chave_label_senha_aleatoria"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/gerador_chaves_botao_gerar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/gerador_chave_campo_senha_aleatoria"
+                android:layout_below="@+id/gerador_chave_campo_senha_aleatoria"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="41dp"
+                android:onClick="gerarChaves"
+                android:text="Gerar Chaves" />
+
+            <Button
+                android:id="@+id/gerador_chaves_botao_voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/gerador_chaves_botao_gerar"
+                android:layout_alignBottom="@+id/gerador_chaves_botao_gerar"
+                android:layout_alignRight="@+id/gerador_chaves_msg"
+                android:layout_marginRight="22dp"
+                android:onClick="voltar"
+                android:text="Voltar" />
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

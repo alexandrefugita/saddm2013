@@ -46,21 +46,34 @@ public class Signer extends Activity{
 	}
 	
 	public void sign(View view) {
+		boolean validacao = true;
+		String pass = ((EditText) findViewById(R.id.signer_campo_senha)).getText().toString();
+		String passConf = ((EditText) findViewById(R.id.signer_campo_confirma_senha)).getText().toString();
+		String passAle = ((EditText) findViewById(R.id.signer_campo_senha_aleatoria)).getText().toString();
 		
-		EditText passText = (EditText) findViewById(R.id.signer_campo_senha);
-		String pass = passText.getText().toString();
-		System.out.println(pass);
 		PasswordValidator valPass = new PasswordValidator(pass);
+		
 		if(!valPass.isPassOk()) {
+			validacao = false;
 			Toast.makeText(this,"A senha não está correta", Toast.LENGTH_SHORT).show();
 			return;
-		}
-		if(!fileSelected.equals("")) {
-			GerenciadorCP gerCP = new GerenciadorCP();
-			gerCP.sign(fileSelected, pass);
-		} else {
-			Toast.makeText(this, "Nenhum arquivo foi selecionado", Toast.LENGTH_SHORT).show();
+		} else if (!pass.equals(passConf)) {
+			validacao = false;
+			Toast.makeText(this,"Confirmação de senha não confere", Toast.LENGTH_SHORT).show();
 			return;
+		}
+		
+		if(fileSelected.equals("")) {
+			validacao = false;
+			Toast.makeText(this, "Nenhum arquivo foi selecionado", Toast.LENGTH_SHORT).show();
+		} 
+		
+		if(validacao) {
+			GerenciadorCP gerCP = new GerenciadorCP();
+			gerCP.sign(fileSelected, pass, passAle);
+			Toast.makeText(this, "Arquivo Assinado", Toast.LENGTH_SHORT).show();
+		} else {
+			validacao = true;
 		}
 	}
 	

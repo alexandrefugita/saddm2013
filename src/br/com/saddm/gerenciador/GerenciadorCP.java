@@ -25,12 +25,9 @@ public class GerenciadorCP {
 	protected PrivateKey chavePrivada;
 	protected PublicKey chavePublica;
 	
-	public void gerarChaves(String pass) {
-		String salt = this.criarSalt();
-		GerenciadorArquivos.writeSalt(salt);
-		lSeed = changeInfoToSeed(salt + GerenciadorArquivos.readUserProfile() + pass);
+	public void gerarChaves(String pass, String passAle) {
+		lSeed = changeInfoToSeed(GerenciadorArquivos.readSalt() + GerenciadorArquivos.readUserProfile() + pass + passAle);
 		
-		salt = null;
 		pass = null;
 		
 		try {
@@ -55,9 +52,9 @@ public class GerenciadorCP {
 			}
 	}
 	
-	private void gerarChavePrivada(String pass) {
+	private void gerarChavePrivada(String pass, String passAle) {
 		try{
-			lSeed = this.changeInfoToSeed(GerenciadorArquivos.readSalt() + GerenciadorArquivos.readUserProfile() + pass);
+			lSeed = this.changeInfoToSeed(GerenciadorArquivos.readSalt() + GerenciadorArquivos.readUserProfile() + pass + passAle);
 			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto");
@@ -72,9 +69,9 @@ public class GerenciadorCP {
 		}
 	}
 	// Metodo de assinar um arquivo
-	public void sign(String fileSelected, String pass) {
+	public void sign(String fileSelected, String pass, String passAle) {
 		// pegar informações em file
-		this.gerarChavePrivada(pass);
+		this.gerarChavePrivada(pass, passAle);
 		
 		try {
 			
@@ -156,31 +153,6 @@ public class GerenciadorCP {
 			e.printStackTrace();
 		}
 		return false;
-	}
-	
-	
-	private String criarSalt() {
-		String salt = "";
-		int i, op;
-		char c;
-		Random random = new Random();
-		
-		for(i = 0; i < 40; i++) {
-			op = random.nextInt(2);
-			
-			if (op == 0) {
-				c = (char) ( random.nextInt(9) + 48 ); // gera numero
-			} else if (op == 1) {
-				c = (char) ( random.nextInt(25) + 97 );  // gera letra minuscula
-			} else {
-				c = (char) ( random.nextInt(25) + 65 );  // gera letra maiuscula
-			}
-				salt = salt + c;
-		}
-		
-		salt = salt + random.nextLong();
-		
-		return salt;
 	}
 	
 	private long changeInfoToSeed(String info) {

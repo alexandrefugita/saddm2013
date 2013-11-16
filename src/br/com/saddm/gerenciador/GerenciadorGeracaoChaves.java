@@ -1,18 +1,16 @@
 package br.com.saddm.gerenciador;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+import br.com.saddm.validator.PasswordValidator;
 
-import com.fugitahyodo.saddm.GerenciadorCadastroChaveAleatoria;
 import com.fugitahyodo.saddm.MainActivity;
 import com.fugitahyodo.saddm.R;
 import com.fugitahyodo.saddm.SaddmActivity;
-import com.fugitahyodo.saddm.SaddmApplication;
 
 
 //TODO  esse é controlor
@@ -33,18 +31,52 @@ public class GerenciadorGeracaoChaves extends SaddmActivity {
 	}
 	
 	public void gerarChaves (View view) {
+		boolean validacao = true;
 //		SharedPreferences sharedpref = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
 //		String name = sharedpref.getString("nome", null);
 //		String cpf = sharedpref.getString("cpf", null);
 //		String dataNasc = sharedpref.getString("dataNascimento", null);
-		EditText pass = (EditText) findViewById(R.id.gerenciador_cadastro_campo_senha);
-		GerenciadorCP gerCp = new GerenciadorCP();
+		String pass = ((EditText) findViewById(R.id.gerador_chave_campo_senha)).getText().toString();
+		String passConf = ((EditText) findViewById(R.id.gerador_chave_campo_senha_confirmacao)).getText().toString();
+		String passAle = ((EditText) findViewById(R.id.gerador_chave_campo_senha_aleatoria)).getText().toString();
 		
-		gerCp.gerarChaves("12345678@A");
-	}
-	
-	public void testeChave(View view) {
+		PasswordValidator passValidator = new PasswordValidator(pass);
 		
+		//Validacao de senha
+		// Tamanho e padrão
+		if (!passValidator.isPassOk()) {
+			validacao = false;
+			Toast.makeText(GerenciadorGeracaoChaves.this,
+					passValidator.getMessage(), Toast.LENGTH_SHORT).show();
+
+		} else if (!pass.equals(passConf)) {
+			validacao = false;
+			Toast.makeText(GerenciadorGeracaoChaves.this,
+					"Confirmação de senha não confere",
+					Toast.LENGTH_SHORT).show();
+		}
+		
+		if(passAle.length() == 0) {
+			validacao = false;
+			Toast.makeText(GerenciadorGeracaoChaves.this,
+					"Senha Aleatória deve ser preenchida",
+					Toast.LENGTH_SHORT).show(); 
+		} else if (passAle.length() != 4) {
+			validacao = false;
+			Toast.makeText(GerenciadorGeracaoChaves.this,
+					"Senha Aleatória não está no tamanho correto",
+					Toast.LENGTH_SHORT).show(); 
+		}
+		
+		if(validacao) {
+			GerenciadorCP gerCp = new GerenciadorCP();
+			gerCp.gerarChaves(pass, passAle);
+			validacao = false;
+			
+			Toast.makeText(GerenciadorGeracaoChaves.this,
+					"Geração de Chave Pública executada com sucesso",
+					Toast.LENGTH_SHORT).show(); 
+		}
 	}
 	
 	public void voltar(View view) {

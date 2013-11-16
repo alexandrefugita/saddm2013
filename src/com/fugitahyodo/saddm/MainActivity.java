@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import br.com.saddm.gerenciador.GerenciadorGeracaoChaves;
 
 
 public class MainActivity extends Activity {
@@ -44,8 +45,8 @@ public class MainActivity extends Activity {
 	    startActivity(intent);
 	}
 	
-	public void senhaAle(View view) {
-		Intent intent = new Intent(MainActivity.this, GerenciadorCadastroChaveAleatoria.class);
+	public void chavePub(View view) {
+		Intent intent = new Intent(MainActivity.this, GerenciadorGeracaoChaves.class);
 	    startActivity(intent);
 	}
 	
