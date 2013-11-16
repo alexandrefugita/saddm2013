@@ -94,7 +94,7 @@ public class GerenciadorCadastro extends SaddmActivity {
 			
 			
 			// Guardar Profile do User
-			GerenciadorArquivos.writeUserProfile(nome.getText().toString(),cpf.getText().toString(),dataNascimento.getText().toString());
+			GerenciadorArquivos.writeUserProfile(nome.getText().toString().replaceAll(" ",""),cpf.getText().toString(),dataNascimento.getText().toString());
 			
 			// chamar intent do aleatorio passando o parametro
 			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroChaveAleatoria.class);

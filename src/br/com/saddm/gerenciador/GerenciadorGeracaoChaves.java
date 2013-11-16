@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 
 import com.fugitahyodo.saddm.GerenciadorCadastroChaveAleatoria;
 import com.fugitahyodo.saddm.MainActivity;
@@ -32,15 +33,14 @@ public class GerenciadorGeracaoChaves extends SaddmActivity {
 	}
 	
 	public void gerarChaves (View view) {
-		SharedPreferences sharedpref = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
-		String name = sharedpref.getString("nome", null);
-		String cpf = sharedpref.getString("cpf", null);
-		String dataNasc = sharedpref.getString("dataNascimento", null);
-		System.out.println(name + "\n" + cpf + "\n" + dataNasc);
-	
+//		SharedPreferences sharedpref = this.getSharedPreferences(SaddmApplication.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+//		String name = sharedpref.getString("nome", null);
+//		String cpf = sharedpref.getString("cpf", null);
+//		String dataNasc = sharedpref.getString("dataNascimento", null);
+		EditText pass = (EditText) findViewById(R.id.gerenciador_cadastro_campo_senha);
 		GerenciadorCP gerCp = new GerenciadorCP();
 		
-		gerCp.gerarChaves(name + cpf + dataNasc, "123455678@A");
+		gerCp.gerarChaves("12345678@A");
 	}
 	
 	public void testeChave(View view) {

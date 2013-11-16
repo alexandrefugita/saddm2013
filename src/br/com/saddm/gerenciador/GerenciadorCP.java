@@ -21,14 +21,18 @@ import org.spongycastle.crypto.util.PublicKeyFactory;
 
 
 public class GerenciadorCP {
-	protected String salt, sSeed;
+	protected long lSeed;
 	protected PrivateKey chavePrivada;
 	protected PublicKey chavePublica;
 	
-	public void gerarChaves(String info, String pass) {
-		this.salt = this.criarSalt();
-		sSeed = this.salt + info + pass;
-				
+	public void gerarChaves(String pass) {
+		String salt = this.criarSalt();
+		GerenciadorArquivos.writeSalt(salt);
+		lSeed = changeInfoToSeed(salt + GerenciadorArquivos.readUserProfile() + pass);
+		
+		salt = null;
+		pass = null;
+		
 		try {
 			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
@@ -36,18 +40,16 @@ public class GerenciadorCP {
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto"); // source of randomness
 			// em caso de um seed espeficifico podesse utilziar random.setSeed(seed);
 			//exemplo teste random.setSeed(201);
-			random.setSeed(201);
-			System.out.println("Seed bytes = " + sSeed.getBytes("utf-8"));
+			random.setSeed(lSeed);
 			keyGen.initialize(256, random); 
 			KeyPair pair = keyGen.generateKeyPair(); // Por segurança destruir o random depois de gerar as chaves
 			
-			PrivateKey priv = pair.getPrivate();
-			PublicKey pub = pair.getPublic(); 
+			chavePrivada = pair.getPrivate();
+			chavePublica = pair.getPublic(); 
 			
-			System.out.println("Chave publica =" + pub);
-			GerenciadorArquivos.writePublicKeyOnDisk(pub.getEncoded());
-			GerenciadorArquivos.writeSalt(this.salt);
-			System.out.println(priv);
+			GerenciadorArquivos.writePublicKeyOnDisk(chavePublica.getEncoded());
+			
+			System.out.println("Chave privada na geracao =" + chavePrivada);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -55,16 +57,15 @@ public class GerenciadorCP {
 	
 	private void gerarChavePrivada(String pass) {
 		try{
-			System.out.println("gerarChavePrivada");
-			sSeed = GerenciadorArquivos.readSalt() + GerenciadorArquivos.readUserProfile() + pass;
+			lSeed = this.changeInfoToSeed(GerenciadorArquivos.readSalt() + GerenciadorArquivos.readUserProfile() + pass);
 			Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 			KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "SC");
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "Crypto");
-			random.setSeed(201);
+			random.setSeed(lSeed);
 			keyGen.initialize(256, random);
 			KeyPair pair= keyGen.generateKeyPair();
 			this.chavePrivada = pair.getPrivate();
-			System.out.println("Chave privada na assinatura =" + chavePrivada);
+			System.out.println("Chave privada na gerar priv =" + chavePrivada);
 		}
 			catch(Exception e) {
 			e.printStackTrace();
@@ -180,6 +181,18 @@ public class GerenciadorCP {
 		salt = salt + random.nextLong();
 		
 		return salt;
+	}
+	
+	private long changeInfoToSeed(String info) {
+		System.out.println("Info to seed = " + info);
+		long infoLong = 0;
+		int i;
+		
+		for(i = 0; i < info.length(); i++) {
+			infoLong = info.charAt(i) + infoLong;
+		}
+		
+		return infoLong;
 	}
 	
 	//Getters and Setters
