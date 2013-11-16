@@ -50,7 +50,7 @@ public class Signer extends Activity{
 		String pass = ((EditText) findViewById(R.id.signer_campo_senha)).getText().toString();
 		String passConf = ((EditText) findViewById(R.id.signer_campo_confirma_senha)).getText().toString();
 		String passAle = ((EditText) findViewById(R.id.signer_campo_senha_aleatoria)).getText().toString();
-		
+		System.out.println(pass + " " + passConf);
 		PasswordValidator valPass = new PasswordValidator(pass);
 		
 		if(!valPass.isPassOk()) {
@@ -78,8 +78,9 @@ public class Signer extends Activity{
 	}
 	
 
-	public String getFileSelected() {
-		return fileSelected;
+	public void voltar(View view) {
+		Intent intent = new Intent(Signer.this, MainActivity.class);
+		startActivity(intent);
 	}
 	
 	

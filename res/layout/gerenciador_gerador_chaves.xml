@@ -109,7 +109,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="41dp"
                 android:onClick="gerarChaves"
-                android:text="Gerar Chaves" />
+                android:text="Gerar Chave" />
 
             <Button
                 android:id="@+id/gerador_chaves_botao_voltar"

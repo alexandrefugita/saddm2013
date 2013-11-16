@@ -111,12 +111,23 @@
                 android:id="@+id/signer_botao_enviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/signer_campo_senha_aleatoria"
                 android:layout_below="@+id/signer_campo_senha_aleatoria"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
                 android:onClick="sign"
                 android:text="Assinar" />
+            
+            <Button
+                android:id="@+id/signer_botao_voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/signer_campo_senha_aleatoria"
+                android:layout_below="@+id/signer_campo_senha_aleatoria"
+                android:layout_marginTop="10dp"
+                android:onClick="voltar"
+                android:text="Voltar" />
+
         </RelativeLayout>
     </ScrollView>
 

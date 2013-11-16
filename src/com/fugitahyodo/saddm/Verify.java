@@ -75,5 +75,10 @@ public class Verify extends Activity{
 		}
 		
 	}
+	
+	public void voltar(View view) {
+		Intent intent = new Intent(Verify.this, MainActivity.class);
+		startActivity(intent);
+	}
 
 }

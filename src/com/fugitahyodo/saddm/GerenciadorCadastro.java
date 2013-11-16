@@ -75,6 +75,11 @@ public class GerenciadorCadastro extends SaddmActivity {
 		}		
 	}
 	
+	public void voltar(View view) {
+		Intent intent = new Intent(GerenciadorCadastro.this, MainActivity.class);
+		startActivity(intent);
+	}
+	
 	private String criarSalt() {
 		String salt = "";
 		int i, op;

@@ -45,7 +45,7 @@
                 android:layout_below="@+id/verify_label_chooseFile"
                 android:layout_marginTop="10dp"
                 android:onClick="chooseFile"
-                android:text="Arquivo" />
+                android:text="Arquivo de Assinado" />
 		 	
 		 	<TextView
                 android:id="@+id/verify_label_chooseSignatura"
@@ -63,19 +63,28 @@
                 android:layout_below="@+id/verify_label_chooseSignatura"
                 android:layout_marginTop="10dp"
                 android:onClick="chooseSignature"
-                android:text="Arquivo" />
+                android:text="Arquivo de Assinatura" />
             
      
             <Button
                 android:id="@+id/verify_botao_verifica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
+                android:layout_alignParentLeft="@+id/verify_label_chooseSignatura"
                 android:layout_below="@+id/signer_button_chooseSignature"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:onClick="verifica"
                 android:text="Verifica" />
+            
+            <Button
+                android:id="@+id/signer_botao_voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/verify_label_chooseSignatura"
+                android:layout_below="@+id/signer_button_chooseSignature"
+                android:layout_marginTop="30dp"
+                android:onClick="voltar"
+                android:text="Voltar" />
 
         </RelativeLayout>
     </ScrollView>

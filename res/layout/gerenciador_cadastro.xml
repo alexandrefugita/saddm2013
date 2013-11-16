@@ -97,12 +97,21 @@
                 android:id="@+id/gerenciador_cadastro_botao_enviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                 android:layout_below="@+id/gerenciador_cadastro_campo_datanasc"
-                android:layout_marginTop="40dp"
+                android:layout_alignParentLeft="@+id/gerenciador_cadastro_campo_datanasc"
+                android:layout_below="@+id/gerenciador_cadastro_label_datanasc"
+                android:layout_marginTop="70dp"
                 android:onClick="verificar"
                 android:text="Cadastrar" />
-
+            
+            <Button
+                android:id="@+id/gerenciador_cadastro_botao_voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/gerenciador_cadastro_campo_datanasc"
+                android:layout_below="@+id/gerenciador_cadastro_label_datanasc"
+                android:layout_marginTop="70dp"
+                android:onClick="voltar"
+                android:text="Voltar" />
         </RelativeLayout>
     </ScrollView>
 
