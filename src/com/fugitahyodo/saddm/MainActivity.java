@@ -34,8 +34,13 @@ public class MainActivity extends Activity {
 	    startActivity(intent);
 	}
 	
-	public void signer(View view) {
+	public void sign(View view) {
 		Intent intent = new Intent(MainActivity.this, Signer.class);
+	    startActivity(intent);
+	}
+	
+	public void verify(View view) {
+		Intent intent = new Intent(MainActivity.this, Verify.class);
 	    startActivity(intent);
 	}
 	
@@ -43,4 +48,5 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(MainActivity.this, GerenciadorCadastroChaveAleatoria.class);
 	    startActivity(intent);
 	}
+	
 }

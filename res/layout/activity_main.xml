@@ -53,8 +53,18 @@
         android:layout_alignBaseline="@+id/gerenciador_chave_aleatoria_botao_confirmar"
         android:layout_alignBottom="@+id/gerenciador_chave_aleatoria_botao_confirmar"
         android:layout_toRightOf="@+id/gerenciador_cadastro_chave_aleatoria_botao_voltar"
-        android:onClick="signer"
+        android:onClick="sign"
         android:text="Assinar" />
+    
+    <Button
+        android:id="@+id/Butto_Verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gerenciador_chave_aleatoria_botao_confirmar"
+        android:layout_alignLeft="@+id/gerenciador_chave_aleatoria_botao_confirmar"
+        android:layout_marginTop="20dp"
+        android:onClick="verify"
+        android:text="Verificar" />
 
     <Button
         android:id="@+id/Button02"

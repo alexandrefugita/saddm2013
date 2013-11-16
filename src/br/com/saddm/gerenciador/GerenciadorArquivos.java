@@ -64,6 +64,8 @@ public class GerenciadorArquivos extends Activity {
 					start = line.lastIndexOf("dataN ") + 6;
 					dataNasc = line.substring(start);
 					System.out.println("Info = " + name + cpf + dataNasc );
+					profileReader.close();
+					bufReader.close();
 					return name + cpf + dataNasc;
 				}
 			} catch( Exception e){
@@ -96,6 +98,20 @@ public class GerenciadorArquivos extends Activity {
 		
 	}
 	
+	public static byte[] readSignature(String signature) {
+		//final String appDirectory = "/Saddm2013/Assinaturas/";
+		try {
+			File sigPath = new File(signature);
+			FileInputStream sigfis = new FileInputStream(sigPath);
+			byte[] sigToVerify = new byte[sigfis.available()];
+			sigfis.read(sigToVerify);
+			sigfis.close();
+			return sigToVerify;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	//Escreve Salt no cartao de memoria
 	public static void writeSalt(String salt) {
 		final String appDirectory = "/Saddm2013/Salt/";  //TODO
@@ -178,13 +194,10 @@ public class GerenciadorArquivos extends Activity {
 		try {
 			File pub = new File (Environment.getExternalStorageDirectory(), appDirectory + "Chaves/" +sFileName);
 			FileInputStream keyfis = new FileInputStream(pub);
-			byte[] key = new byte[2048];
-			int i = 0;
-			while( i >= 0){
-				i = keyfis.read();
-				i = i + 1;
-			}
-	
+			byte[] key = new byte[keyfis.available()];
+			keyfis.read(key);
+			keyfis.close();
+			return key;
 					
 		} catch (Exception e) {
 			e.printStackTrace();
