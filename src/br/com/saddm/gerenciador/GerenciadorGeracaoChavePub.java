@@ -14,12 +14,12 @@ import com.fugitahyodo.saddm.SaddmActivity;
 
 
 //TODO  esse é controlor
-public class GerenciadorGeracaoChaves extends SaddmActivity {
+public class GerenciadorGeracaoChavePub extends SaddmActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.gerenciador_gerador_chaves);
+		setContentView(R.layout.gerenciador_gerador_chave_pub);
 		
 	}
 
@@ -46,24 +46,24 @@ public class GerenciadorGeracaoChaves extends SaddmActivity {
 		// Tamanho e padrão
 		if (!passValidator.isPassOk()) {
 			validacao = false;
-			Toast.makeText(GerenciadorGeracaoChaves.this,
+			Toast.makeText(GerenciadorGeracaoChavePub.this,
 					passValidator.getMessage(), Toast.LENGTH_SHORT).show();
 
 		} else if (!pass.equals(passConf)) {
 			validacao = false;
-			Toast.makeText(GerenciadorGeracaoChaves.this,
+			Toast.makeText(GerenciadorGeracaoChavePub.this,
 					"Confirmação de senha não confere",
 					Toast.LENGTH_SHORT).show();
 		}
 		
 		if(passAle.length() == 0) {
 			validacao = false;
-			Toast.makeText(GerenciadorGeracaoChaves.this,
+			Toast.makeText(GerenciadorGeracaoChavePub.this,
 					"Senha Aleatória deve ser preenchida",
 					Toast.LENGTH_SHORT).show(); 
 		} else if (passAle.length() != 4) {
 			validacao = false;
-			Toast.makeText(GerenciadorGeracaoChaves.this,
+			Toast.makeText(GerenciadorGeracaoChavePub.this,
 					"Senha Aleatória não está no tamanho correto",
 					Toast.LENGTH_SHORT).show(); 
 		}
@@ -73,14 +73,14 @@ public class GerenciadorGeracaoChaves extends SaddmActivity {
 			gerCp.gerarChaves(pass, passAle);
 			validacao = false;
 			
-			Toast.makeText(GerenciadorGeracaoChaves.this,
+			Toast.makeText(GerenciadorGeracaoChavePub.this,
 					"Geração de Chave Pública executada com sucesso",
 					Toast.LENGTH_SHORT).show(); 
 		}
 	}
 	
 	public void voltar(View view) {
-		Intent intent = new Intent(GerenciadorGeracaoChaves.this, MainActivity.class);
+		Intent intent = new Intent(GerenciadorGeracaoChavePub.this, MainActivity.class);
 		startActivity(intent);
 	}
 }

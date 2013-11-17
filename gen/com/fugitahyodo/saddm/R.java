@@ -101,8 +101,8 @@ public final class R {
         public static final int activity_main=0x7f030000;
         public static final int file_view=0x7f030001;
         public static final int gerenciador_cadastro=0x7f030002;
-        public static final int gerenciador_cadastro_chave_aleatoria=0x7f030003;
-        public static final int gerenciador_gerador_chaves=0x7f030004;
+        public static final int gerenciador_cadastro_senha_aleatoria=0x7f030003;
+        public static final int gerenciador_gerador_chave_pub=0x7f030004;
         public static final int gerenciador_principal=0x7f030005;
         public static final int signer=0x7f030006;
         public static final int verify=0x7f030007;

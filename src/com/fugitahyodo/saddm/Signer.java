@@ -53,9 +53,12 @@ public class Signer extends Activity{
 		System.out.println(pass + " " + passConf);
 		PasswordValidator valPass = new PasswordValidator(pass);
 		
-		if(!valPass.isPassOk()) {
+		if(pass.length() < 10 || passAle.length() < 10 || passConf.length() < 4) {
 			validacao = false;
-			Toast.makeText(this,"A senha não está correta", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this,"Preencher corretamente as senhas", Toast.LENGTH_SHORT).show();
+		} else if(!valPass.isPassOk()) {
+			validacao = false;
+			Toast.makeText(this,valPass.getMessage(), Toast.LENGTH_SHORT).show();
 			return;
 		} else if (!pass.equals(passConf)) {
 			validacao = false;
@@ -71,7 +74,7 @@ public class Signer extends Activity{
 		if(validacao) {
 			GerenciadorCP gerCP = new GerenciadorCP();
 			gerCP.sign(fileSelected, pass, passAle);
-			Toast.makeText(this, "Arquivo Assinado", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Assinatura realizada com sucesso", Toast.LENGTH_SHORT).show();
 		} else {
 			validacao = true;
 		}

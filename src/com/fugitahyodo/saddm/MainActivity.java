@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import br.com.saddm.gerenciador.GerenciadorGeracaoChaves;
+import br.com.saddm.gerenciador.GerenciadorGeracaoChavePub;
 
 
 public class MainActivity extends Activity {
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void chavePub(View view) {
-		Intent intent = new Intent(MainActivity.this, GerenciadorGeracaoChaves.class);
+		Intent intent = new Intent(MainActivity.this, GerenciadorGeracaoChavePub.class);
 	    startActivity(intent);
 	}
 	

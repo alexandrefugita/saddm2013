@@ -45,7 +45,7 @@
                 android:layout_below="@+id/verify_label_chooseFile"
                 android:layout_marginTop="10dp"
                 android:onClick="chooseFile"
-                android:text="Arquivo de Assinado" />
+                android:text="Arquivo Assinado" />
 		 	
 		 	<TextView
                 android:id="@+id/verify_label_chooseSignatura"

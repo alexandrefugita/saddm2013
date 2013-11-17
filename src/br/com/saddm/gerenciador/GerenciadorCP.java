@@ -10,14 +10,7 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.security.Signature;
-import java.security.spec.EncodedKeySpec;
-import java.security.spec.KeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Random;
-
-import org.spongycastle.asn1.eac.ECDSAPublicKey;
-import org.spongycastle.asn1.x509.Certificate;
-import org.spongycastle.crypto.util.PublicKeyFactory;
 
 
 public class GerenciadorCP {
@@ -96,6 +89,7 @@ public class GerenciadorCP {
 				sign.update(buffer, 0 , len);
 				
 			};
+			
 			bufin.close();
 			
 			// Assintatura 

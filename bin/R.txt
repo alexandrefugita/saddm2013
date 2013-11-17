@@ -76,8 +76,8 @@ int id verify_scrollView 0x7f080031
 int layout activity_main 0x7f030000
 int layout file_view 0x7f030001
 int layout gerenciador_cadastro 0x7f030002
-int layout gerenciador_cadastro_chave_aleatoria 0x7f030003
-int layout gerenciador_gerador_chaves 0x7f030004
+int layout gerenciador_cadastro_senha_aleatoria 0x7f030003
+int layout gerenciador_gerador_chave_pub 0x7f030004
 int layout gerenciador_principal 0x7f030005
 int layout signer 0x7f030006
 int layout verify 0x7f030007

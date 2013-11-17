@@ -62,7 +62,7 @@ public class GerenciadorCadastro extends SaddmActivity {
 
 		//Se todos os campos são validos, continua  processo de cadastro
 		if (validacao) {
-			Toast.makeText(GerenciadorCadastro.this, "Cadastro executado com sucesso",
+			Toast.makeText(GerenciadorCadastro.this, "Cadastro realizado com sucesso",
 					Toast.LENGTH_SHORT).show();
 
 			// Guardar Profile do User
@@ -70,7 +70,7 @@ public class GerenciadorCadastro extends SaddmActivity {
 			GerenciadorArquivos.writeSalt(this.criarSalt());
 			
 			// chamar intent do aleatorio passando o parametro
-			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroChaveAleatoria.class);
+			Intent intent = new Intent(GerenciadorCadastro.this, GerenciadorCadastroSenhaAleatoria.class);
 		    startActivity(intent);
 		}		
 	}

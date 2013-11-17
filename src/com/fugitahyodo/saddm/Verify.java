@@ -66,8 +66,6 @@ public class Verify extends Activity{
 	public void verifica(View view) {
 		GerenciadorCP geCP = new GerenciadorCP();
 		
-		System.out.println("Fileselected = " + fileSelected);
-		System.out.println("SigSelected = " + sigSelected);
 		if(geCP.verifica(fileSelected, sigSelected)) {
 			System.out.println("Assinatura está okay");
 		} else {

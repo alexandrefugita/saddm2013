@@ -3,7 +3,7 @@ package com.fugitahyodo.saddm;
 import java.util.Random;
 
 import br.com.saddm.gerenciador.GerenciadorArquivos;
-import br.com.saddm.gerenciador.GerenciadorGeracaoChaves;
+import br.com.saddm.gerenciador.GerenciadorGeracaoChavePub;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
+public class GerenciadorCadastroSenhaAleatoria extends SaddmActivity {
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.gerenciador_cadastro_chave_aleatoria);
+		setContentView(R.layout.gerenciador_cadastro_senha_aleatoria);
 
 		//		Intent intent = getIntent();
 		//		String chaveAleatoria = intent.getStringExtra(Constants.CHAVE_ALEATORIA);
@@ -62,12 +62,12 @@ public class GerenciadorCadastroChaveAleatoria extends SaddmActivity {
 	}
 
 	public void voltar(View view) {
-		Intent intent = new Intent(GerenciadorCadastroChaveAleatoria.this, MainActivity.class);
+		Intent intent = new Intent(GerenciadorCadastroSenhaAleatoria.this, MainActivity.class);
 		startActivity(intent);
 	}
 
 	public void confirmar(View view) {
-		Intent intent = new Intent(GerenciadorCadastroChaveAleatoria.this, GerenciadorGeracaoChaves.class);
+		Intent intent = new Intent(GerenciadorCadastroSenhaAleatoria.this, GerenciadorGeracaoChavePub.class);
 		startActivity(intent);
 	}
 }
