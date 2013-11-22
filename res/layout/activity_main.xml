@@ -56,5 +56,15 @@
         android:layout_marginTop="10dp"
         android:onClick="chavePub"
         android:text="Gerar Chave Pública" />
+    
+    <Button
+        android:id="@+id/main_activity_send_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_activity_gerar_pub"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="sendFiles"
+        android:text="Enviar Arquivos" />
 
 </RelativeLayout>

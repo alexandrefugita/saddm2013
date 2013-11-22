@@ -31,7 +31,8 @@
 		<activity android:name="com.fugitahyodo.saddm.SaddmActivity"></activity>
 		<activity android:name="com.fugitahyodo.saddm.Signer"></activity>
 		<activity android:name="com.fugitahyodo.saddm.Verify"></activity>  
-		<activity android:name="br.com.thinkti.android.filechooser.FileChooser"></activity>  
+		<activity android:name="com.fugitahyodo.saddm.SendFile"></activity>
+		<activity android:name="br.com.thinkti.android.filechooser.FileChooser"></activity>    
     </application>
 
 </manifest>

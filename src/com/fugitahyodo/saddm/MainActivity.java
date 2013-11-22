@@ -50,4 +50,8 @@ public class MainActivity extends Activity {
 	    startActivity(intent);
 	}
 	
+	public void sendFile(View view) {
+		Intent intent = new Intent(MainActivity.this, SendFile.class);
+	    startActivity(intent);
+	}
 }
