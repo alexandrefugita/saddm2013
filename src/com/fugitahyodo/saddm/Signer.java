@@ -2,15 +2,17 @@ package com.fugitahyodo.saddm;
 
 import java.util.ArrayList;
 
-import br.com.saddm.gerenciador.GerenciadorCP;
-import br.com.saddm.validator.PasswordValidator;
-import br.com.thinkti.android.filechooser.FileChooser;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import br.com.saddm.gerenciador.GerenciadorCP;
+import br.com.saddm.validator.PasswordValidator;
+import br.com.thinkti.android.filechooser.FileChooser;
+
+
 
 public class Signer extends Activity{
 	private static final int FILE_CHOOSER = 11;
@@ -50,11 +52,11 @@ public class Signer extends Activity{
 		String pass = ((EditText) findViewById(R.id.signer_campo_senha)).getText().toString();
 		String passConf = ((EditText) findViewById(R.id.signer_campo_confirma_senha)).getText().toString();
 		String passAle = ((EditText) findViewById(R.id.signer_campo_senha_aleatoria)).getText().toString();
-		System.out.println(pass + " " + passConf);
+		System.out.println(pass + " " + passConf + " " + passAle);
 		PasswordValidator valPass = new PasswordValidator(pass);
 		
-		if(pass.length() < 10 || passAle.length() < 10 || passConf.length() < 4) {
-			validacao = false;
+		if(pass.length() <= 9 || passConf.length() <= 9 || passAle.length() <= 3) {
+			validacao = false;			
 			Toast.makeText(this,"Preencher corretamente as senhas", Toast.LENGTH_SHORT).show();
 		} else if(!valPass.isPassOk()) {
 			validacao = false;

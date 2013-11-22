@@ -17,8 +17,8 @@
 
         <RelativeLayout
             android:id="@+id/gerenciador_cadastro_relative_layout"
-            android:layout_width="302dp"
-            android:layout_height="534dp" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/gerenciador_cadastro_mensagem"

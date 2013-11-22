@@ -157,7 +157,7 @@ public class GerenciadorArquivos extends Activity {
 	}
 	
 	public static void writePublicKeyOnDisk(byte[] key) {
-		String sFileName = "suepk";
+		String sFileName = "suepk.pub";
 		final String appDirectory = "/Saddm2013/";
 		
 		//Confere o acesso ao cartão externo
@@ -187,12 +187,12 @@ public class GerenciadorArquivos extends Activity {
 		}
 	}
 	
-	public static byte[] readPublicKey() {
-		String sFileName = "suepk";
-		final String appDirectory = "/Saddm2013/";
+	public static byte[] readPublicKey(String pubKey) {
+		String sFileName = pubKey;
+		//final String appDirectory = "/Saddm2013/";
 		
 		try {
-			File pub = new File (Environment.getExternalStorageDirectory(), appDirectory + "Chaves/" +sFileName);
+			File pub = new File (sFileName); //Environment.getExternalStorageDirectory(), appDirectory + "Chaves/" +
 			FileInputStream keyfis = new FileInputStream(pub);
 			byte[] key = new byte[keyfis.available()];
 			keyfis.read(key);

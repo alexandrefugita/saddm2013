@@ -107,7 +107,7 @@ public class GerenciadorCP {
 	}
 	
 	// Metodo de Verificação de assinatura
-	public boolean verifica (String fileSelected, String signature) {
+	public boolean verifica (String fileSelected, String signature, String pubKey) {
 		Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 		System.out.println("Entrou Verifica");
 		//byte[] temp;
@@ -115,7 +115,7 @@ public class GerenciadorCP {
 		try {
 			// get da publickey do cartao sd
 			KeyFactory keyFactory = KeyFactory.getInstance("ECDSA", "SC");
-			chavePublica = keyFactory.generatePublic(new X509EncodedKeySpec(GerenciadorArquivos.readPublicKey()));
+			chavePublica = keyFactory.generatePublic(new X509EncodedKeySpec(GerenciadorArquivos.readPublicKey(pubKey)));
 			//temp = GerenciadorArquivos.readPublicKey();
 			
 			System.out.println("Pegou chave Publica = " + chavePublica);

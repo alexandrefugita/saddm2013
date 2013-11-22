@@ -41,7 +41,7 @@ public final class R {
     public static final class id {
         public static final int TextView01=0x7f080006;
         public static final int TextView02=0x7f080007;
-        public static final int action_settings=0x7f080038;
+        public static final int action_settings=0x7f08003a;
         public static final int gerador_chave_campo_senha=0x7f08001e;
         public static final int gerador_chave_campo_senha_aleatoria=0x7f080022;
         public static final int gerador_chave_campo_senha_confirmacao=0x7f080020;
@@ -80,6 +80,7 @@ public final class R {
         public static final int main_activity_verify=0x7f080003;
         public static final int signer_botao_enviar=0x7f08002f;
         public static final int signer_botao_voltar=0x7f080030;
+        public static final int signer_button_choosePubKey=0x7f080038;
         public static final int signer_button_chooseSignature=0x7f080036;
         public static final int signer_button_choosefile=0x7f080028;
         public static final int signer_campo_confirma_senha=0x7f08002c;
@@ -90,8 +91,9 @@ public final class R {
         public static final int signer_label_senha=0x7f080029;
         public static final int signer_label_senha_aleatoria=0x7f08002d;
         public static final int signer_mensagem=0x7f080026;
-        public static final int verify_botao_verifica=0x7f080037;
+        public static final int verify_botao_verifica=0x7f080039;
         public static final int verify_label_chooseFile=0x7f080034;
+        public static final int verify_label_choosePubKey=0x7f080037;
         public static final int verify_label_chooseSignatura=0x7f080035;
         public static final int verify_mensagem=0x7f080033;
         public static final int verify_relative_layout=0x7f080032;

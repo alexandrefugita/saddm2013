@@ -64,14 +64,32 @@
                 android:layout_marginTop="10dp"
                 android:onClick="chooseSignature"
                 android:text="Arquivo de Assinatura" />
+		 	
+		 	<TextView
+                android:id="@+id/verify_label_choosePubKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/signer_button_chooseSignature"
+                android:layout_marginTop="20dp"
+                android:text="Escolher a chave pública a ser utilizada"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+		 	<Button
+                android:id="@+id/signer_button_choosePubKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/verify_label_choosePubKey"
+                android:layout_marginTop="10dp"
+                android:onClick="choosePubKey"
+                android:text="Chave Pública" />
             
      
             <Button
                 android:id="@+id/verify_botao_verifica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="@+id/verify_label_chooseSignatura"
-                android:layout_below="@+id/signer_button_chooseSignature"
+                android:layout_alignParentLeft="@+id/signer_button_choosePubKey"
+                android:layout_below="@+id/signer_button_choosePubKey"
                 android:layout_marginTop="30dp"
                 android:onClick="verifica"
                 android:text="Verifica" />
@@ -81,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@+id/verify_label_chooseSignatura"
-                android:layout_below="@+id/signer_button_chooseSignature"
+                android:layout_below="@+id/signer_button_choosePubKey"
                 android:layout_marginTop="30dp"
                 android:onClick="voltar"
                 android:text="Voltar" />
