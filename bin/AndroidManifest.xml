@@ -7,16 +7,18 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".SaddmApplication"
+        android:name="br.com.saddm.SaddmApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.fugitahyodo.saddm.MainActivity"
+            android:name="br.com.saddm.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +26,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.fugitahyodo.saddm.GerenciadorPrincipal"></activity>
-        <activity android:name="com.fugitahyodo.saddm.GerenciadorCadastro"></activity>
-        <activity android:name="com.fugitahyodo.saddm.GerenciadorCadastroSenhaAleatoria"></activity>
-        <activity android:name="br.com.saddm.gerenciador.GerenciadorGeracaoChavePub"></activity>
-		<activity android:name="com.fugitahyodo.saddm.SaddmActivity"></activity>
-		<activity android:name="com.fugitahyodo.saddm.Signer"></activity>
-		<activity android:name="com.fugitahyodo.saddm.Verify"></activity>  
-		<activity android:name="com.fugitahyodo.saddm.SendFile"></activity>
-		<activity android:name="br.com.thinkti.android.filechooser.FileChooser"></activity>    
+        <activity android:name="br.com.saddm.gerenciador.GerenciadorPrincipal" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.GerenciadorCadastro" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.GerenciadorCadastroSenhaAleatoria" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.GerenciadorDestinatario" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.GerenciadorGeracaoChavePub" >
+        </activity>
+        <activity android:name="br.com.saddm.SaddmActivity" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.SendFile" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.Signer" >
+        </activity>
+        <activity android:name="br.com.saddm.gerenciador.Verify" >
+        </activity>
+        <!-- <activity androidbr.com.saddm.gerenciador.Verify.Verify"></activity> -->
+        <!-- <activity br.com.saddm.gerenciador.SendFile.util.SendFile"></activity> -->
+        <activity android:name="br.com.thinkti.android.filechooser.FileChooser" >
+        </activity>
     </application>
 
 </manifest>

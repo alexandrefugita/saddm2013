@@ -25,9 +25,9 @@ public final class R {
 		public static final int zip32 = 0x7f02000f;
 	}
 	public static final class id {
-		public static final int TextView01 = 0x7f080007;
-		public static final int TextView02 = 0x7f080008;
-		public static final int img1 = 0x7f080006;
+		public static final int TextView01 = 0x7f080008;
+		public static final int TextView02 = 0x7f080009;
+		public static final int img1 = 0x7f080007;
 	}
 	public static final class layout {
 		public static final int file_view = 0x7f030001;

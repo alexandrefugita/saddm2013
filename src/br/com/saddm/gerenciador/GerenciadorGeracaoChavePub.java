@@ -6,14 +6,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import br.com.saddm.MainActivity;
+import br.com.saddm.SaddmActivity;
 import br.com.saddm.validator.PasswordValidator;
 
-import com.fugitahyodo.saddm.MainActivity;
 import com.fugitahyodo.saddm.R;
-import com.fugitahyodo.saddm.SaddmActivity;
 
 
-//TODO  esse é controlor
+//TODO  esse ï¿½ controlor
 public class GerenciadorGeracaoChavePub extends SaddmActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class GerenciadorGeracaoChavePub extends SaddmActivity {
 		PasswordValidator passValidator = new PasswordValidator(pass);
 		
 		//Validacao de senha
-		// Tamanho e padrão
+		// Tamanho e padrï¿½o
 		if (!passValidator.isPassOk()) {
 			validacao = false;
 			Toast.makeText(GerenciadorGeracaoChavePub.this,
@@ -52,19 +52,19 @@ public class GerenciadorGeracaoChavePub extends SaddmActivity {
 		} else if (!pass.equals(passConf)) {
 			validacao = false;
 			Toast.makeText(GerenciadorGeracaoChavePub.this,
-					"Confirmação de senha não confere",
+					"ConfirmaÃ§Ã£o de senha nÃ£o confere",
 					Toast.LENGTH_SHORT).show();
 		}
 		
 		if(passAle.length() == 0) {
 			validacao = false;
 			Toast.makeText(GerenciadorGeracaoChavePub.this,
-					"Senha Aleatória deve ser preenchida",
+					"Senha Aleatï¿½ria deve ser preenchida",
 					Toast.LENGTH_SHORT).show(); 
 		} else if (passAle.length() != 4) {
 			validacao = false;
 			Toast.makeText(GerenciadorGeracaoChavePub.this,
-					"Senha Aleatória não está no tamanho correto",
+					"Senha Aleatï¿½ria nï¿½o estï¿½ no tamanho correto",
 					Toast.LENGTH_SHORT).show(); 
 		}
 		
@@ -74,7 +74,7 @@ public class GerenciadorGeracaoChavePub extends SaddmActivity {
 			validacao = false;
 			
 			Toast.makeText(GerenciadorGeracaoChavePub.this,
-					"Geração de Chave Pública executada com sucesso",
+					"Geraï¿½ï¿½o de Chave Pï¿½blica executada com sucesso",
 					Toast.LENGTH_SHORT).show(); 
 		}
 	}

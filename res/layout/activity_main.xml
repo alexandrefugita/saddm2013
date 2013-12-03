@@ -8,15 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-	<TextView
-        android:id="@+id/main_activity_msg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:text="Bem Vindo ao Sistema de Assinatura Digital"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
     <Button
         android:id="@+id/main_activity_cadastrar"
         android:layout_width="wrap_content"
@@ -28,43 +19,63 @@
         android:text="Cadastrar" />
 
     <Button
-        android:id="@+id/main_activity_sign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_activity_cadastrar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="sign"
-        android:text="Assinar" />
-    
-    <Button
-        android:id="@+id/main_activity_verify"
+        android:id="@+id/main_activity_send_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/main_activity_sign"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:text="Verificar" />
+        android:layout_marginTop="15dp"
+        android:onClick="sendFile"
+        android:text="Enviar Arquivos" />
+
+    <TextView
+        android:id="@+id/main_activity_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Bem Vindo ao Sistema de Assinatura Digital"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/main_activity_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_activity_gerar_pub"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:onClick="sign"
+        android:text="Assinar" />
 
     <Button
         android:id="@+id/main_activity_gerar_pub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/main_activity_verify"
+        android:layout_below="@+id/main_activity_cadastrar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:onClick="chavePub"
         android:text="Gerar Chave Pública" />
-    
+
     <Button
-        android:id="@+id/main_activity_send_file"
+        android:id="@+id/main_activity_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/main_activity_gerar_pub"
+        android:layout_alignRight="@+id/main_activity_cadastrar"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="14dp"
+        android:onClick="verify"
+        android:text="Verificar" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_activity_send_file"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="sendFiles"
-        android:text="Enviar Arquivos" />
+        android:layout_marginTop="14dp"
+        android:onClick="receiveFile"
+        android:text="Receber Arquivos" />
 
 </RelativeLayout>

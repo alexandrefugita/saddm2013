@@ -37,8 +37,8 @@
                 android:layout_marginTop="20dp"
                 android:text="Escolher arquivo a ser Enviado"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-            
-		 	<Button
+
+            <Button
                 android:id="@+id/signer_button_choosefile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +47,32 @@
                 android:onClick="chooseFile"
                 android:text="Arquivo Assinado" />
 
+            <TextView
+                android:id="@+id/send_file_label_chooseSignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/signer_button_choosefile"
+                android:layout_marginTop="20dp"
+                android:text="Escolher assinatura do arquivo"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/signer_button_choosesignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/send_file_label_chooseSignature"
+                android:layout_marginTop="10dp"
+                android:onClick="chooseSignature"
+                android:text="Assinatura" />
+            
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="enviar"
+                android:text="Enviar" />
         </RelativeLayout>
     </ScrollView>
 

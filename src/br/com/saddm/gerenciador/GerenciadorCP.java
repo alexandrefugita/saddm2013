@@ -32,7 +32,7 @@ public class GerenciadorCP {
 			//exemplo teste random.setSeed(201);
 			random.setSeed(lSeed);
 			keyGen.initialize(256, random); 
-			KeyPair pair = keyGen.generateKeyPair(); // Por segurança destruir o random depois de gerar as chaves
+			KeyPair pair = keyGen.generateKeyPair(); // Por seguranï¿½a destruir o random depois de gerar as chaves
 			
 			chavePrivada = pair.getPrivate();
 			chavePublica = pair.getPublic(); 
@@ -40,6 +40,7 @@ public class GerenciadorCP {
 			GerenciadorArquivos.writePublicKeyOnDisk(chavePublica.getEncoded());
 			
 			System.out.println("Chave privada na geracao =" + chavePrivada);
+			System.out.println("Chave publica na geracao =" + chavePublica);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -63,7 +64,7 @@ public class GerenciadorCP {
 	}
 	// Metodo de assinar um arquivo
 	public void sign(String fileSelected, String pass, String passAle) {
-		// pegar informações em file
+		// pegar informaï¿½ï¿½es em file
 		this.gerarChavePrivada(pass, passAle);
 		
 		try {
@@ -106,7 +107,7 @@ public class GerenciadorCP {
 		
 	}
 	
-	// Metodo de Verificação de assinatura
+	// Metodo de Verificaï¿½ï¿½o de assinatura
 	public boolean verifica (String fileSelected, String signature, String pubKey) {
 		Security.addProvider(new org.spongycastle.jce.provider.BouncyCastleProvider());
 		System.out.println("Entrou Verifica");
@@ -141,7 +142,7 @@ public class GerenciadorCP {
 
 
             boolean verifies = sig.verify(sigToVerify);
-             System.out.println("Verificação da Assinatura = " + verifies );
+             System.out.println("Verificaï¿½ï¿½o da Assinatura = " + verifies );
             return verifies;
 		} catch(Exception e) {
 			e.printStackTrace();
